@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/03 12:07:55 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:10:51 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	test_c()
 	static char	c = 'c';
 
 	ft_printf("=====	ft_printf: % c	=====\n");
-	ft_printf("Caractere: {%c}\n", c);
+	ft_printf("ft_printf	Caractere: {%c}\n", c);
+	printf("printf		Caractere: {%c}\n", c);
 }
 
 void	test_s()
@@ -25,7 +26,8 @@ void	test_s()
 	static char	*choux = "au choux.";
 
 	ft_printf("=====	ft_printf: % s	=====\n");
-	ft_printf("La soupe {%s}\n", choux);
+	ft_printf("ft_printf	La soupe {%s}\n", choux);
+	printf("printf		La soupe {%s}\n", choux);
 }
 
 int	main(void)
