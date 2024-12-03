@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/03 11:56:35 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:04:16 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,4 @@ int	ft_printf(const char *s, ...)
 	return (0);
 }
 
-int	main(void)
-{
-	static char	*choux = "au choux.";
 
-	ft_printf("=====	ft_printf	=====\n");
-	ft_printf("La soupe %s\n", choux);
-	return (0);
-}
