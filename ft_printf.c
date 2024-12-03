@@ -6,28 +6,26 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/02 18:43:01 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:56:35 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_convention	new_convention(char format, void (*f)(va_list arg))
-{
-	t_convention	new;
-
-	new.format = format;
-	new.f = f;
-	return (new);
-}
-
 void	printf_format(char c, va_list args)
 {
-	t_convention	dico[9] = {
-		new_convention('c', ft_putchar),
-		new_convention('s', ft_putstr)
+	static t_convention	dico[9] = {
+		(t_convention){'c', ft_putchar},
+		(t_convention){'s', ft_putstr},
+		(t_convention){'p', NULL},
+		(t_convention){'d', NULL},
+		(t_convention){'i', NULL},
+		(t_convention){'u', NULL},
+		(t_convention){'x', NULL},
+		(t_convention){'X', NULL},
+		(t_convention){'%', NULL}
 	};
-	size_t	index;
+	size_t				index;
 
 	index = 0;
 	while (index <= 9 && dico[index].format != c)
@@ -65,7 +63,7 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
-	char	*choux = "au choux.";
+	static char	*choux = "au choux.";
 
 	ft_printf("=====	ft_printf	=====\n");
 	ft_printf("La soupe %s\n", choux);
