@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/03 12:10:51 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:30:18 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,32 @@ void	test_s()
 	printf("printf		La soupe {%s}\n", choux);
 }
 
+void	test_d()
+{
+	static int	nbr = 42;
+
+	ft_printf("=====	ft_printf: % d	=====\n");
+	ft_printf("ft_printf	nbr = {%d}\n", nbr);
+	printf("printf		nbr = {%d}\n", nbr);
+}
+
+void	test_i()
+{
+	static int	nbr = 42;
+
+	ft_printf("=====	ft_printf: % i	=====\n");
+	ft_printf("ft_printf	nbr = {%i}\n", nbr);
+	printf("printf		nbr = {%i}\n", nbr);
+}
+
 int	main(void)
 {
 	test_c();
 	ft_printf("\n");
 	test_s();
+	ft_printf("\n");
+	test_d();
+	ft_printf("\n");
+	test_i();
 	return (0);
 }

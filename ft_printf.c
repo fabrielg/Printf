@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/03 12:04:16 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:32:13 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	printf_format(char c, va_list args)
 		(t_convention){'c', ft_putchar},
 		(t_convention){'s', ft_putstr},
 		(t_convention){'p', NULL},
-		(t_convention){'d', NULL},
-		(t_convention){'i', NULL},
+		(t_convention){'d', ft_putnbr},
+		(t_convention){'i', ft_putnbr},
 		(t_convention){'u', NULL},
 		(t_convention){'x', NULL},
 		(t_convention){'X', NULL},
@@ -36,7 +36,8 @@ void	printf_format(char c, va_list args)
 		write(1, &c, 1);
 		return ;
 	}
-	dico[index].f(args);
+	if (dico[index].f)
+		dico[index].f(args);
 }
 
 int	ft_printf(const char *s, ...)
@@ -60,5 +61,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (0);
 }
-
-
