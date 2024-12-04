@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:47:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:47:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:52:36 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	ft_putpercent(va_list arg)
 {
+	(void)arg;
 	return (write(1, "%", 1));
 }

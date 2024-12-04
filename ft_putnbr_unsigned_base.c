@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:32:35 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:33:50 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:52:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	is_base_string_correct(char *base, int size)
 
 static void	print_decimal_to_base(unsigned int decimal, char *b, int sz, int *n)
 {
-	if (decimal >= sz)
+	if (decimal >= (unsigned int)sz)
 	{
 		print_decimal_to_base(decimal / sz, b, sz, n);
 		print_decimal_to_base(decimal % sz, b, sz, n);

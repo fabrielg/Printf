@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:27:43 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:54:52 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	test_c()
 
 void	test_s()
 {
-	static char	*choux = "au choux.";
+	static char	*choux = NULL;
 
 	ft_printf("=====	ft_printf: %%s	=====\n");
 	ft_printf("ft_printf	La soupe {%s}\n", choux);
