@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 15:45:25 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:20:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	test_c()
 {
 	static char	c = 'c';
 
-	ft_printf("=====	ft_printf: % c	=====\n");
+	ft_printf("=====	ft_printf: %%c	=====\n");
 	ft_printf("ft_printf	Caractere: {%c}\n", c);
 	printf("printf		Caractere: {%c}\n", c);
 }
@@ -25,7 +25,7 @@ void	test_s()
 {
 	static char	*choux = "au choux.";
 
-	ft_printf("=====	ft_printf: % s	=====\n");
+	ft_printf("=====	ft_printf: %%s	=====\n");
 	ft_printf("ft_printf	La soupe {%s}\n", choux);
 	printf("printf		La soupe {%s}\n", choux);
 }
@@ -34,7 +34,7 @@ void	test_d()
 {
 	static int	nbr = 42;
 
-	ft_printf("=====	ft_printf: % d	=====\n");
+	ft_printf("=====	ft_printf: %%d	=====\n");
 	ft_printf("ft_printf	nbr = {%d}\n", nbr);
 	printf("printf		nbr = {%d}\n", nbr);
 }
@@ -43,7 +43,7 @@ void	test_i()
 {
 	static int	nbr = 42;
 
-	ft_printf("=====	ft_printf: % i	=====\n");
+	ft_printf("=====	ft_printf: %%i	=====\n");
 	ft_printf("ft_printf	nbr = {%i}\n", nbr);
 	printf("printf		nbr = {%i}\n", nbr);
 }
@@ -52,9 +52,16 @@ void	test_u()
 {
 	static unsigned int	nbr = -20;
 
-	ft_printf("=====	ft_printf: % u	=====\n");
+	ft_printf("=====	ft_printf: %%u	=====\n");
 	ft_printf("ft_printf	nbr = {%u}\n", nbr);
 	printf("printf		nbr = {%u}\n", nbr);
+}
+
+void	test_percent()
+{
+	ft_printf("=====	ft_printf: %%%	=====\n");
+	ft_printf("ft_printf	voici un pourcent : {%%}\n");
+	printf("printf		voici un pourcent : {%%}\n");
 }
 
 int	main(void)
@@ -68,5 +75,7 @@ int	main(void)
 	test_i();
 	ft_printf("\n");
 	test_u();
+	ft_printf("\n");
+	test_percent();
 	return (0);
 }
