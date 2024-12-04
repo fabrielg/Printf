@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:36:38 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:20:05 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	printf_format(char c, va_list args)
 	static t_convention	dico[9] = {
 		(t_convention){'c', ft_putchar},
 		(t_convention){'s', ft_putstr},
-		(t_convention){'p', NULL},
+		(t_convention){'p', ft_display_adress},
 		(t_convention){'d', ft_putnbr},
 		(t_convention){'i', ft_putnbr},
 		(t_convention){'u', ft_putnbr_unsigned},
