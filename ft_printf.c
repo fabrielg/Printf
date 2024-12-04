@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:18:08 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:36:38 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	printf_format(char c, va_list args)
 		(t_convention){'d', ft_putnbr},
 		(t_convention){'i', ft_putnbr},
 		(t_convention){'u', ft_putnbr_unsigned},
-		(t_convention){'x', NULL},
-		(t_convention){'X', NULL},
+		(t_convention){'x', ft_puthexa},
+		(t_convention){'X', ft_puthexa_upper},
 		(t_convention){'%', ft_putpercent}
 	};
 	size_t				index;

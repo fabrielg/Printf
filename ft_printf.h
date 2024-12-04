@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:17:58 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:53:34 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	ft_putnbr(va_list arg);
 /* ft_putnbr_unsigned functions */
 void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
 void	ft_putnbr_unsigned(va_list arg);
+
+/* ft_puthexa functions */
+void	ft_putnbr_unsigned_base(unsigned int nbr, char *base);
+void	ft_puthexa(va_list arg);
+void	ft_puthexa_upper(va_list arg);
 
 /* ft_putpercent functions */
 void	ft_putpercent(va_list arg);

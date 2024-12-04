@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:20:12 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:55:40 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,24 @@ void	test_u()
 	printf("printf		nbr = {%u}\n", nbr);
 }
 
+void	test_x()
+{
+	static int	nbr = -255;
+
+	ft_printf("=====	ft_printf: %%x	=====\n");
+	ft_printf("ft_printf	nbr = %d, in hexa = {%x}\n", nbr, nbr);
+	printf("printf		nbr = %d, in hexa = {%x}\n", nbr, nbr);
+}
+
+void	test_X()
+{
+	static int	nbr = -255;
+
+	ft_printf("=====	ft_printf: %%X	=====\n");
+	ft_printf("ft_printf	nbr = %d, in HEXA = {%X}\n", nbr, nbr);
+	printf("printf		nbr = %d, in HEXA = {%X}\n", nbr, nbr);
+}
+
 void	test_percent()
 {
 	ft_printf("=====	ft_printf: %%%	=====\n");
@@ -75,6 +93,10 @@ int	main(void)
 	test_i();
 	ft_printf("\n");
 	test_u();
+	ft_printf("\n");
+	test_x();
+	ft_printf("\n");
+	test_X();
 	ft_printf("\n");
 	test_percent();
 	return (0);
