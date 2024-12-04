@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:32:35 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:40:47 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:33:50 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ int	ft_putnbr_unsigned_base(unsigned int nbr, char *base)
 {
 	int		i;
 	int		size;
-	int		*nb_display;
+	int		nb_display;
 
 	i = 0;
 	size = ft_strlen(base);
-	*nb_display = 0;
+	nb_display = 0;
 	if (is_base_string_correct(base, size))
 	{
-		print_decimal_to_base(nbr, base, size, nb_display);
+		print_decimal_to_base(nbr, base, size, &nb_display);
 	}
-	return (*nb_display);
+	return (nb_display);
 }

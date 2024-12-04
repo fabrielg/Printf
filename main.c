@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:21:30 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:27:43 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	test_p()
 	static int	p = -3342;
 
 	ft_printf("=====	ft_printf: %%p	=====\n");
-	ft_printf("ft_printf	Adresse de p = {%i} {%p}\n", p, p);
-	printf("printf		Adresse de p = {%i} {%p}\n", p, p);
+	ft_printf("ft_printf	Adresse de p = {%d} {%p}\n", p, p);
+	printf("printf		Adresse de p = {%d} {%p}\n", p, p);
 }
 
 void	test_d()

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:46:13 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:34:15 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_putnbr_unsigned_fd(unsigned int n, int fd, int *nb_display)
 int	ft_putnbr_unsigned(va_list arg)
 {
 	unsigned int	n;
-	int				*nb_display;
+	int				nb_display;
 
 	n = va_arg(arg, unsigned int);
-	*nb_display = 0;
-	ft_putnbr_unsigned_fd(n, 1, nb_display);
-	return (*nb_display);
+	nb_display = 0;
+	ft_putnbr_unsigned_fd(n, 1, &nb_display);
+	return (nb_display);
 }

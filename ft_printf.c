@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:48:59 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:29:20 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf(const char *s, ...)
 
 	va_start(args, s);
 	nb_display = 0;
-	while (*s)
+	while (s && *s)
 	{
 		if (*s == '%' && *(s + 1))
 		{
