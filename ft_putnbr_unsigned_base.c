@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:32:35 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:56:29 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:40:47 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +62,29 @@ static int	is_base_string_correct(char *base, int size)
 	return (all_unique_char(base));
 }
 
-static void	print_decimal_to_base(unsigned int decimal, char *base, int size)
+static void	print_decimal_to_base(unsigned int decimal, char *b, int sz, int *n)
 {
-	if (decimal >= size)
+	if (decimal >= sz)
 	{
-		print_decimal_to_base(decimal / size, base, size);
-		print_decimal_to_base(decimal % size, base, size);
+		print_decimal_to_base(decimal / sz, b, sz, n);
+		print_decimal_to_base(decimal % sz, b, sz, n);
 	}
 	else
-		write(1, &base[decimal], 1);
+		*n += write(1, &b[decimal], 1);
 }
 
-void	ft_putnbr_unsigned_base(unsigned int nbr, char *base)
+int	ft_putnbr_unsigned_base(unsigned int nbr, char *base)
 {
 	int		i;
 	int		size;
+	int		*nb_display;
 
 	i = 0;
 	size = ft_strlen(base);
+	*nb_display = 0;
 	if (is_base_string_correct(base, size))
 	{
-		print_decimal_to_base(nbr, base, size);
+		print_decimal_to_base(nbr, base, size, nb_display);
 	}
+	return (*nb_display);
 }

@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:20:05 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:48:59 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	printf_format(char c, va_list args)
+int	printf_format(char c, va_list args)
 {
 	static t_convention	dico[9] = {
 		(t_convention){'c', ft_putchar},
@@ -34,30 +34,33 @@ void	printf_format(char c, va_list args)
 	{
 		write(1, "%", 1);
 		write(1, &c, 1);
-		return ;
+		return (2);
 	}
 	if (dico[index].f)
-		dico[index].f(args);
+		return (dico[index].f(args));
+	return (0);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
+	int		nb_display;
 
 	va_start(args, s);
+	nb_display = 0;
 	while (*s)
 	{
 		if (*s == '%' && *(s + 1))
 		{
-			printf_format(*(s + 1), args);
+			nb_display += printf_format(*(s + 1), args);
 			s++;
 		}
 		else
 		{
-			write(1, s, 1);
+			nb_display += write(1, s, 1);
 		}
 		s++;
 	}
 	va_end(args);
-	return (0);
+	return (nb_display);
 }

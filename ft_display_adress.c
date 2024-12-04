@@ -6,22 +6,25 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:15:16 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:19:41 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:41:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_display_adress(va_list arg)
+int	ft_display_adress(va_list arg)
 {
 	void	*p;
+	int		nb_display;
 
 	p = va_arg(arg, void *);
+	nb_display = 0;
 	if (!p)
-		write(1, "(nil)", 5);
+		nb_display += write(1, "(nil)", 5);
 	else
 	{
-		write(1, "0x", 2);
-		ft_putnbr_unsigned_base(p, "0123456789abcdef");
+		nb_display += write(1, "0x", 2);
+		nb_display += ft_putnbr_unsigned_base(p, "0123456789abcdef");
 	}
+	return (nb_display);
 }

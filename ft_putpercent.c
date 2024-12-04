@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:47:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 16:17:43 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:47:24 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putpercent(va_list arg)
+int	ft_putpercent(va_list arg)
 {
-	write(1, "%", 1);
+	return (write(1, "%", 1));
 }
