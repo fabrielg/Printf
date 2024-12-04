@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:03:41 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 15:30:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:45:25 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ void	test_i()
 	printf("printf		nbr = {%i}\n", nbr);
 }
 
+void	test_u()
+{
+	static unsigned int	nbr = -20;
+
+	ft_printf("=====	ft_printf: % u	=====\n");
+	ft_printf("ft_printf	nbr = {%u}\n", nbr);
+	printf("printf		nbr = {%u}\n", nbr);
+}
+
 int	main(void)
 {
 	test_c();
@@ -57,5 +66,7 @@ int	main(void)
 	test_d();
 	ft_printf("\n");
 	test_i();
+	ft_printf("\n");
+	test_u();
 	return (0);
 }
