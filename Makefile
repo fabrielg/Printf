@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2024/12/04 18:44:37 by gfrancoi         ###   ########.fr        #
+#    Updated: 2024/12/05 12:48:42 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ft_printf.c\
 	ft_putnbr.c\
 	ft_putnbr_unsigned.c\
 	ft_putnbr_unsigned_base.c\
+	ft_putnbr_unsignedl_base.c\
 	ft_puthexa.c\
 	ft_putpercent.c
 

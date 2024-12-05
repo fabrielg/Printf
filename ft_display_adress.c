@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:15:16 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:57:20 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:53:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	ft_display_adress(va_list arg)
 {
-	void	*p;
-	int		nb_display;
+	unsigned long	address;
+	int				nb_display;
 
-	p = va_arg(arg, void *);
+	address = va_arg(arg, unsigned long);
 	nb_display = 0;
-	if (!p)
+	if (!address)
 		nb_display += write(1, "(nil)", 5);
 	else
 	{
 		nb_display += write(1, "0x", 2);
-		nb_display += ft_putnbr_unsigned_base(*(int *)p, "0123456789abcdef");
+		nb_display += ft_putnbr_unsignedl_base(address, "0123456789abcdef");
 	}
 	return (nb_display);
 }

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:20:38 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:47:06 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int		ft_putpercent(va_list arg);
 
 /* utils functions */
 int		ft_putnbr_unsigned_base(unsigned int nbr, char *base);
+int		ft_putnbr_unsignedl_base(unsigned long nbr, char *base);
 
 #endif
