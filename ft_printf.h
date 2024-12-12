@@ -17,11 +17,11 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-typedef struct s_conversion
+typedef struct s_flag
 {
-	char	format;
+	char	c;
 	int		(*f)(va_list arg);
-}	t_convention;
+}	t_flag;
 
 /* ft_printf functions */
 int		printf_format(char c, va_list args);
