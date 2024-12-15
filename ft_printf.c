@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/11 12:49:11 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/15 15:21:21 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	printf_format(char c, va_list args)
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
+	char	*temp;
 	int		nb_display;
 
 	va_start(args, s);
@@ -52,8 +53,9 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%' && *(s + 1))
 		{
-			nb_display += printf_format(*(s + 1), args);
-			s++;
+			temp = ft_strchr("cspdiuxX%", s);
+			//if (!temp)
+				
 		}
 		else
 		{

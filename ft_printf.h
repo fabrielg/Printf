@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/11 12:50:57 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:16:40 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,30 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+# define PREFIX		0b00001
+# define ZERO_PAD	0b00010
+# define LEFT_ALIGN	0b00100
+# define SPACE		0b01000
+# define SIGNED		0b10000
+
 typedef struct s_flag
 {
 	char	c;
 	int		(*f)(va_list arg);
 }	t_flag;
 
+/*
+%[+- #0]	[0-9]		.[0-9]*		[cspdiuxX%]
+Flags		Field_width	Precision	Conversion specifier
+*/
 typedef struct s_conversion
 {
 	t_flag	flag;
 	char	*format;
 	int		format_size;
+	int		field_width;
+	int		precision;
+	char	to_fill;
 }	t_conversion;
 
 /* ft_printf functions */
@@ -61,5 +74,6 @@ int		ft_putpercent(va_list arg);
 /* utils functions */
 int		ft_putnbr_unsigned_base(unsigned int nbr, char *base);
 int		ft_putnbr_unsignedl_base(unsigned long nbr, char *base);
+char	*ft_strchr(const char *s, int c);
 
 #endif
