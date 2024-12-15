@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:29:20 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:49:11 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	printf_format(char c, va_list args)
 {
-	static t_convention	dico[9] = {
-		(t_convention){'c', ft_putchar},
-		(t_convention){'s', ft_putstr},
-		(t_convention){'p', ft_display_adress},
-		(t_convention){'d', ft_putnbr},
-		(t_convention){'i', ft_putnbr},
-		(t_convention){'u', ft_putnbr_unsigned},
-		(t_convention){'x', ft_puthexa},
-		(t_convention){'X', ft_puthexa_upper},
-		(t_convention){'%', ft_putpercent}
+	static t_flag	dico[9] = {
+		(t_flag){'c', ft_putchar},
+		(t_flag){'s', ft_putstr},
+		(t_flag){'p', ft_display_adress},
+		(t_flag){'d', ft_putnbr},
+		(t_flag){'i', ft_putnbr},
+		(t_flag){'u', ft_putnbr_unsigned},
+		(t_flag){'x', ft_puthexa},
+		(t_flag){'X', ft_puthexa_upper},
+		(t_flag){'%', ft_putpercent}
 	};
 	size_t				index;
 
 	index = 0;
-	while (index <= 9 && dico[index].format != c)
+	while (index <= 9 && dico[index].c != c)
 		index++;
 	if (index >= 9)
 	{

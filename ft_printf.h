@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/05 12:47:06 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:50:57 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+typedef struct s_flag
+{
+	char	c;
+	int		(*f)(va_list arg);
+}	t_flag;
+
 typedef struct s_conversion
 {
-	char	format;
-	int		(*f)(va_list arg);
-}	t_convention;
+	t_flag	flag;
+	char	*format;
+	int		format_size;
+}	t_conversion;
 
 /* ft_printf functions */
 int		printf_format(char c, va_list args);
