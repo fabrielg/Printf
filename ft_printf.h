@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/15 18:16:40 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/15 22:44:21 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,32 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-# define PREFIX		0b00001
-# define ZERO_PAD	0b00010
-# define LEFT_ALIGN	0b00100
-# define SPACE		0b01000
-# define SIGNED		0b10000
+# define PREFIX		0b00001 // #
+# define ZERO_PAD	0b00010 // 0
+# define LEFT_ALIGN	0b00100 // -
+# define SPACE		0b01000 // ' '
+# define SIGNED		0b10000 // +
 
-typedef struct s_flag
+# define FLAGS			1
+# define FIELD_WIDTH	2
+# define PRECISION		3
+# define SPECIFIER		4
+
+typedef struct s_specifier
 {
 	char	c;
 	int		(*f)(va_list arg);
-}	t_flag;
-
+}	t_specifier;
 /*
 %[+- #0]	[0-9]		.[0-9]*		[cspdiuxX%]
 Flags		Field_width	Precision	Conversion specifier
 */
 typedef struct s_conversion
 {
-	t_flag	flag;
-	char	*format;
-	int		format_size;
-	int		field_width;
-	int		precision;
-	char	to_fill;
+	t_specifier	specifier;
+	char		flags;
+	int			field_width;
+	int			precision;
 }	t_conversion;
 
 /* ft_printf functions */

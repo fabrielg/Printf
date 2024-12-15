@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/15 16:50:00 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/15 22:25:39 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ void	test_p() {
 #include <stdio.h>
 
 int	main(int argc, char** argv) {
-	tests_cs();
-	printf("\n");
-	tests_d();
-	printf("\n");
-	tests_u();
-	printf("\n");
-	test_p();
+	// tests_cs();
+	// printf("\n");
+	// tests_d();
+	// printf("\n");
+	// tests_u();
+	// printf("\n");
+	// test_p();
+	printf("%d\n", parse_flags("%#0 +-8.0x"));
 }
