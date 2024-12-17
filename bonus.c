@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/17 17:45:38 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:30:31 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*void	tests_cs() {
+void	tests_cs() {
 	printf("[%4s] [%4s] [%.4s] [%.4s] \n", "01", "012345", "01", "012345");
 	printf("[%4.4s] [%5.4s] [%-4.4s] [%-8.4s] [%.6s] [%.5s] \n", "01", "012345", "01", "012345", 0, 0);
 	printf("[%c] [%c] [%4c] [%-4c] \n", '\0', 'F', 'F', 'F');
@@ -64,17 +64,17 @@ void	test_p() {
 	printf("[%-20p] [%-.20p]\n", 0, 0);
 	printf("[%20p] [%.20p]\n", 0, 0);
 	printf("[%020p] [%.20p]\n", 0, 0);
-}*/
+}
 
 #include <stdio.h>
 
 int	main(int argc, char** argv) {
-	// tests_cs();
+	//tests_cs();
 	// printf("\n");
 	// tests_d();
 	// printf("\n");
 	// tests_u();
 	// printf("\n");
 	// test_p();
-	ft_printf("Je suis un %#- 4.2s.\n", "test");
+	ft_printf("Je suis un [%4c].\n", 'c');
 }

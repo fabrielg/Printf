@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/17 17:44:40 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:08:18 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Flags		Field_width	Precision	Conversion specifier
 */
 typedef struct s_conversion
 {
-	t_specifier	specifier;
+	char		specifier;
 	char		flags;
 	int			field_width;
 	int			precision;
@@ -53,7 +53,7 @@ int		ft_parse(const char *format, t_conversion *conv);
 t_specifier	*get_specifier(char c);
 
 /* ft_putchar functions */
-int		ft_putchar(va_list arg);
+int	ft_putchar(t_conversion conv, va_list arg);
 
 /* ft_putstr functions */
 int		ft_putstr(va_list arg);
