@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:36:56 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/17 19:03:57 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:51:37 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,36 @@ static int	check_field_width_precision(const char **format)
 	return (result);
 }
 
+char	*next_in_charset(const char *s, char *charset)
+{
+	char	*next;
+	size_t	i;
+
+	while (*s)
+	{
+		i = 0;
+		while (charset[i])
+		{
+			next = ft_strchr(s, charset[i]);
+			if (next)
+				return (next);
+			i++;
+		}
+		s++;
+	}
+	return (NULL);
+}
+
 int	ft_parse(const char *format, t_conversion *conv)
 {
+	char	*temp;
+
 	if (!format || !conv)
 		return (0);
 	if (*(format++) != '%')
 		return (0);
-	conv->length = ft_strlen(format);
+	temp = next_in_charset(format, "cspdiuxX%");
+	conv->length = (int)(temp - format) + 2;
 	conv->flags = check_flags(&format);
 	conv->field_width = check_field_width_precision(&format);
 	if (*format == '.')

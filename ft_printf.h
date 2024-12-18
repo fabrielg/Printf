@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/17 19:08:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:06:37 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_conversion
 /* ft_printf functions */
 int		ft_printf(const char *s, ...);
 int		ft_parse(const char *format, t_conversion *conv);
-t_specifier	*get_specifier(char c);
+int		apply_specifier_function(t_conversion conv, va_list args);
 
 /* ft_putchar functions */
 int	ft_putchar(t_conversion conv, va_list arg);
