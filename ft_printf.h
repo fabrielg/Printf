@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabrielg <fabrielg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/18 11:06:37 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:56:57 by fabrielg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int		apply_specifier_function(t_conversion conv, va_list args);
 /* ft_putcharf functions */
 int		ft_putcharf(t_conversion conv, va_list arg);
 
-/* ft_putstr functions */
-int		ft_putstr(va_list arg);
+/* ft_putstrf functions */
+int		ft_putstrf(t_conversion conv, va_list args);
 
 /* ft_display_adress functions */
 int		ft_display_adress(va_list arg);
@@ -79,5 +79,18 @@ int		ft_putpercent(va_list arg);
 /* utils functions */
 int		ft_putnbr_unsigned_base(unsigned int nbr, char *base);
 int		ft_putnbr_unsignedl_base(unsigned long nbr, char *base);
+
+/* strbuild */
+typedef struct s_strbuild
+{
+	char		c;
+	t_strbuild	*next;
+}   t_strbuild;
+
+t_strbuild	*ft_strbuild_new(char content);
+t_strbuild	*ft_strbuild_last(t_strbuild *str);
+size_t		ft_strbuild_size(t_strbuild *str);
+void		ft_strbuild_add_front(t_strbuild *str, char content);
+void		ft_strbuild_add_back(t_strbuild *str, char content);
 
 #endif

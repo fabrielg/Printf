@@ -26,7 +26,7 @@ int	apply_specifier_function(t_conversion conv, va_list args)
 	if (conv.specifier == 'c')
 		return (ft_putcharf(conv, args));
 	else if (conv.specifier == 's')
-		ft_putcharf(conv, args);
+		return (ft_putstrf(conv, args));
 	else if (conv.specifier == 'p')
 		ft_putcharf(conv, args);
 	else if (conv.specifier == 'd' || conv.specifier == 'i')

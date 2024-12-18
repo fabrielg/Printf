@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstrf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,36 @@
 
 #include "ft_printf.h"
 
-int	ft_putstr(va_list arg)
+int	ft_putstrf(t_conversion conv, va_list args)
 {
 	char	*s;
 	int		nb_display;
 
-	s = va_arg(arg, char *);
-	if (!s)
-		return (write(1, "(null)", 6));
+	s = va_arg(args, char *);
 	nb_display = 0;
-	while (*s)
-		nb_display += write(1, s++, 1);
+
+	if (!s)
+	{
+		if (!s && conv.precision > 5)
+			nb_display += write(1, "(null)", 6);
+		while (s && *s && nb_display < conv.field_width)
+			nb_display += write(1, s++, 1);
+		while (nb_display < conv.field_width)
+			nb_display += write(1, " ", 1);
+	}
+
+
+	if (conv.flags & LEFT_ALIGN)
+	{
+	}
+	else
+	{
+		if (!s && conv.precision > 5)
+			nb_display += write(1, "(null)", 6);
+		while (s && *s && nb_display < conv.field_width)
+			nb_display += write(1, s++, 1);
+		while (nb_display < conv.field_width)
+			nb_display += write(1, " ", 1);
+	}
 	return (nb_display);
 }

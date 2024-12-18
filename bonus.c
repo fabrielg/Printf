@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabrielg <fabrielg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/18 13:00:56 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:42:53 by fabrielg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ int	main(int argc, char** argv) {
 	int result1;
 	int result2;
 
+	result1 = ft_printf("ft: [%4s] [%4s] [%.4s] [%.4s] \n", "01", "012345", "01", "012345");
+	result2 = printf("pf: [%4s] [%4s] [%.4s] [%.4s] \n", "01", "012345", "01", "012345");
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%4.4s] [%5.4s] [%-4.4s] [%-8.4s] [%-8.6s] [%-8.5s] \n", "01", "012345", "01", "012345", 0, 0);
+	result2 = printf("pf: [%4.4s] [%5.4s] [%-4.4s] [%-8.4s] [%-8.6s] [%-8.5s] \n", "01", "012345", "01", "012345", 0, 0);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	/*
 	result1 = ft_printf("[%c] [%c] [%4c] [%-4c] \n", '\0', 'F', 'F', 'F');
 	result2 = printf("[%c] [%c] [%4c] [%-4c] \n", '\0', 'F', 'F', 'F');
 	printf("result1=	%d\nresult2=	%d\n", result1, result2);
@@ -102,5 +110,5 @@ int	main(int argc, char** argv) {
 	result1 = ft_printf("[%c] [%c] [%c]\n", 0, '1', '2');
 	result2 = printf("[%c] [%c] [%c]\n", 0, '1', '2');
 	printf("result1=	%d\nresult2=	%d\n", result1, result2);
-	
+	*/
 }

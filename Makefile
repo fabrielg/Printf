@@ -17,7 +17,7 @@ NAME = libftprintf.a
 
 SRCS = ft_printf.c\
 	ft_putcharf.c\
-	ft_putstr.c\
+	ft_putstrf.c\
 	ft_display_adress.c\
 	ft_putnbr.c\
 	ft_putnbr_unsigned.c\

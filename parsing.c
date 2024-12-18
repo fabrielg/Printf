@@ -81,6 +81,7 @@ int	ft_parse(const char *format, t_conversion *conv)
 	conv->length = (int)(temp - format) + 2;
 	conv->flags = check_flags(&format);
 	conv->field_width = check_field_width_precision(&format);
+	conv->precision = -1;
 	if (*format == '.')
 	{
 		format++;
