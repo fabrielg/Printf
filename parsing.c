@@ -49,7 +49,7 @@ static int	check_field_width_precision(const char **format)
 	return (result);
 }
 
-char	*next_in_charset(const char *s, char *charset)
+static char	*next_in_charset(const char *s, char *charset)
 {
 	char	*next;
 	size_t	i;

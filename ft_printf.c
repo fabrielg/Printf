@@ -24,21 +24,21 @@ static void	printf_conv(t_conversion conv)
 int	apply_specifier_function(t_conversion conv, va_list args)
 {
 	if (conv.specifier == 'c')
-		return (ft_putchar(conv, args));
+		return (ft_putcharf(conv, args));
 	else if (conv.specifier == 's')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == 'p')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == 'd' || conv.specifier == 'i')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == 'u')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == 'x')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == 'X')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	else if (conv.specifier == '%')
-		ft_putchar(conv, args);
+		ft_putcharf(conv, args);
 	return (0);
 }
 

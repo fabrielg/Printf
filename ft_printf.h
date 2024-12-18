@@ -52,8 +52,8 @@ int		ft_printf(const char *s, ...);
 int		ft_parse(const char *format, t_conversion *conv);
 int		apply_specifier_function(t_conversion conv, va_list args);
 
-/* ft_putchar functions */
-int	ft_putchar(t_conversion conv, va_list arg);
+/* ft_putcharf functions */
+int		ft_putcharf(t_conversion conv, va_list arg);
 
 /* ft_putstr functions */
 int		ft_putstr(va_list arg);

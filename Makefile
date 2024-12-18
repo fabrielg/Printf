@@ -16,7 +16,7 @@ OPTION = -c
 NAME = libftprintf.a
 
 SRCS = ft_printf.c\
-	ft_putchar.c\
+	ft_putcharf.c\
 	ft_putstr.c\
 	ft_display_adress.c\
 	ft_putnbr.c\
