@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int	ft_putcharf(t_conversion conv, va_list arg)
+int	ft_putcharf(t_conversion conv, va_list args)
 {
 	int	c;
 	int	nb_display;
 
-	c = va_arg(arg, int);
+	c = va_arg(args, int);
 	nb_display = 0;
 	if (conv.flags & LEFT_ALIGN)
 	{

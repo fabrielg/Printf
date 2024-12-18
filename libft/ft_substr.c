@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabrielg <fabrielg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:00:01 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:56:04 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:05:31 by fabrielg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstrf(t_conversion conv, va_list args)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*s;
-	int			nb_display;
-	t_strbuild	*str;
+	char	*sub;
+	size_t	sub_len;
+	size_t	i;
 
-	s = va_arg(args, char *);
-	str = ft_strbuild_new('c');
-	nb_display = 0;
-
-	return (nb_display);
+	if (!s)
+		return (0);
+	sub_len = 0;
+	while (start < ft_strlen(s) && sub_len < len && s[start + sub_len])
+		sub_len++;
+	sub = ft_calloc(sub_len + 1, sizeof(char));
+	if (!sub)
+		return (0);
+	i = 0;
+	while (i < sub_len)
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = 0;
+	return (sub);
 }
