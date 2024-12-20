@@ -12,15 +12,36 @@
 
 #include "ft_printf.h"
 
+static int	ft_get_min(int a, int b)
+{
+	if (a <= b)
+		return (a);
+	return (b);
+}
+
 int	ft_putstrf(t_conversion conv, va_list args)
 {
 	char		*s;
 	int			nb_display;
-	t_strbuild	*str;
+	int			precision;
+	t_strbuild	*build;
 
 	s = va_arg(args, char *);
-	str = ft_strbuild_new('c');
+	build = ft_strbuild_new();
 	nb_display = 0;
 
+	if (!s && conv.precision > 5)
+		s = "(null)";
+	else if (!s)
+		s = "";
+	precision = ft_get_min(conv.precision, ft_strlen(s));
+	if (conv.flags & LEFT_ALIGN)
+		// Alignement a gauche
+		ft_strbuild_add_front(&build, s);
+	// Ajouter les caracteres ' '
+	if (!(conv.flags & LEFT_ALIGN))
+		// Alignement a droite
+		ft_strbuild_add_back(&build, s);
+	ft_strbuild_free(&build);
 	return (nb_display);
 }
