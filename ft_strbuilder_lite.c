@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:38:05 by fabrielg          #+#    #+#             */
-/*   Updated: 2024/12/20 15:03:26 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:55:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,46 @@ t_strbuild	*ft_strbuild_new(void)
 
 void	ft_strbuild_add_front(t_strbuild **build, char *content)
 {
-	size_t		index;
+	size_t		length;
 	t_strbuild	*front;
 
 	front = ft_strbuild_new();
 	if (!content || !(*content) || !build || !front)
 		return ;
-	index = 0;
-	while (*content && index < STRBUILDER_SIZE)
-		front->content[index++] = (*content)++;
+	ft_strlcpy((char *)front->content, (const char *)content, STRBUILDER_SIZE);
+	length = ft_strlen((char *)front->content);
+	content += length;
 	front->next = *build;
 	*build = front;
 	if (*content)
 		ft_strbuild_add_front(build, content);
 }
 
+int ft_strbuild_display(t_strbuild *build)
+{
+	int	nb_display;
+
+	nb_display = 0;
+	while (build)
+	{
+		nb_display += write(1, (char *)build->content, ft_strlen((char *)build->content));
+		build = build->next;
+	}
+	return (nb_display);
+}
+
 void	ft_strbuild_add_back(t_strbuild **build, char *content)
 {
-	size_t		index;
+	size_t		length;
 	t_strbuild	*back;
 	t_strbuild	*last;
 
 	back = ft_strbuild_new();
 	if (!content || !(*content) || !build || !back)
 		return ;
-	index = 0;
-	while (*content && index < STRBUILDER_SIZE)
-		back->content[index++] = (*content)++;
+	ft_strlcpy((char *)back->content, (const char *)content, STRBUILDER_SIZE);
+	length = ft_strlen((char *)back->content);
+	content += length;
 	last = ft_strbuild_last(*build);
 	last->next = back;
 	if (*content)

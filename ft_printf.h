@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/20 14:56:36 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:53:43 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		ft_putnbr_unsigned_base(unsigned int nbr, char *base);
 int		ft_putnbr_unsignedl_base(unsigned long nbr, char *base);
 
 /* strbuilder */
-# define STRBUILDER_SIZE 128
+# define STRBUILDER_SIZE 3
 
 typedef struct s_strbuild
 {
@@ -95,5 +95,6 @@ void		ft_strbuild_add_back(t_strbuild **build, char *content);
 t_strbuild	*ft_strbuild_last(t_strbuild *build);
 size_t		ft_strbuild_size(t_strbuild *str);
 int			ft_strbuild_free(t_strbuild **build);
+int 		ft_strbuild_display(t_strbuild *build);
 
 #endif

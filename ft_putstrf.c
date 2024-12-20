@@ -29,19 +29,17 @@ int	ft_putstrf(t_conversion conv, va_list args)
 	s = va_arg(args, char *);
 	build = ft_strbuild_new();
 	nb_display = 0;
-
 	if (!s && conv.precision > 5)
 		s = "(null)";
 	else if (!s)
 		s = "";
 	precision = ft_get_min(conv.precision, ft_strlen(s));
 	if (conv.flags & LEFT_ALIGN)
-		// Alignement a gauche
 		ft_strbuild_add_front(&build, s);
 	// Ajouter les caracteres ' '
 	if (!(conv.flags & LEFT_ALIGN))
-		// Alignement a droite
 		ft_strbuild_add_back(&build, s);
+	nb_display += ft_strbuild_display(build);
 	ft_strbuild_free(&build);
 	return (nb_display);
 }
