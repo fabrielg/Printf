@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 16:41:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:05:31 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int		ft_putstrf(t_conversion conv, va_list args);
 int		ft_display_adress(va_list arg);
 
 /* ft_putnbr functions */
-void	ft_putnbr_fd(int n, int fd, int *nb_display);
-int		ft_putnbr(va_list arg);
+void	ft_putnbrf_fd(int n, int fd, int *nb_display);
+int		ft_putnbrf(va_list arg);
 
 /* ft_putnbr_unsigned functions */
 void	ft_putnbr_unsigned_fd(unsigned int n, int fd, int *nb_display);

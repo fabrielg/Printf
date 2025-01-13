@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:39:09 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 19:53:56 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:07:57 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_STRBUILDER_H
 
 # include <stdio.h>
+# include "../libft/libft.h"
 
 /* strbuilder */
 # ifndef SB_SIZE

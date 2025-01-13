@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 19:54:40 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:08:53 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sb_debug(t_strbuilder *sb)
 		ft_putstr_fd(sb->content, 1);
 		ft_putstr_fd("]\nnext: [", 1);
 		if (sb->next)
-			ft_putstr_fd(sb->next, 1);
+			ft_putstr_fd(sb->next->content, 1);
 		else
 			ft_putstr_fd("(null)", 1);
 		ft_putstr_fd("]\nindex: ", 1);
