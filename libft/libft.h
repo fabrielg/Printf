@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:41:14 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 19:46:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:21:01 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ size_t	ft_strlen(const char *s);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
+void	ft_putstrn_fd(char *str, int n, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 char	*ft_strchr(const char *s, int c);
