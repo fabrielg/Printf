@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:25:47 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 19:54:54 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:06:49 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int	main(void)
 	ft_sb_display(test);
 	printf("\nsize: %d\n", ft_sb_size(test));
 	ft_sb_debug(test);
+	ft_sb_clear(&test);
 }
 */

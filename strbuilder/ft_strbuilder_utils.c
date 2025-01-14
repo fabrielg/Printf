@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/13 20:08:53 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:04:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ int	ft_sb_size(t_strbuilder *sb)
 		size -= (SB_SIZE - ft_strlen(sb->content));
 	}
 	return (size);
+}
+
+int	ft_sb_clear(t_strbuilder **sb)
+{
+	if (!*sb || !sb)
+		return (0);
+	ft_sb_clear(&(*sb)->next);
+	free(*sb);
+	*sb = NULL;
+	return (1);
 }
