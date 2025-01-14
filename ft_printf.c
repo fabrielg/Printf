@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/18 12:56:29 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:22:42 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	printf_conv(t_conversion conv)
+void	printf_conv(t_conversion conv)
 {
 	printf("specifier:		[%c]\n", conv.specifier);
 	printf("flags:			[%d]\n", conv.flags);
