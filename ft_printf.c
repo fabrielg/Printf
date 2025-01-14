@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/14 13:22:42 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:15:28 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,14 @@ static int	display_formatted(char *s, va_list args, t_conversion *conv)
 {
 	ft_memset(conv, 0, sizeof(t_conversion));
 	if (ft_parse(s, conv))
-	{
-		// printf("\noui\n");
-		// printf_conv(*conv);
 		return (apply_specifier_function(*conv, args));
-	}
-	else
-	{
-		// printf("\nnon\n");
-		// printf_conv(*conv);
-		return (write(1, s, conv->length));
-	}
+	return (write(1, s, conv->length));
 }
 
 int	ft_sprintf(const char *s, va_list args)
 {
-	int		nb_display;
-	char	*next_conv;
+	int				nb_display;
+	char			*next_conv;
 	t_conversion	conv;
 
 	nb_display = 0;
@@ -82,7 +73,7 @@ int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		nb_display;
-	
+
 	va_start(args, s);
 	nb_display = ft_sprintf(s, args);
 	va_end(args);
