@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/14 16:26:57 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:53:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,25 @@ void	ft_sb_debug(t_strbuilder *sb)
 	}
 }
 
-void	ft_sb_display(t_strbuilder *sb)
+int	ft_sb_display(t_strbuilder *sb)
 {
+	char	*build;
+	int		index;
+	int		nb_display;
+
+	build = ft_calloc(ft_sb_size(sb), sizeof(char) + 1);
+	if (!build)
+		return (-1);
+	index = 0;
 	while (sb)
 	{
-		ft_putstrn_fd(sb->content, sb->index, 1);
+		ft_memcpy((build + index), sb->content, sb->index + 1);
+		index += sb->index;
 		sb = sb->next;
 	}
+	nb_display = ft_putstrn_fd(build, index, 1);
+	free(build);
+	return (nb_display);
 }
 
 int	ft_sb_size(t_strbuilder *sb)

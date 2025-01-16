@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:39:09 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/14 13:05:49 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:29:13 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_strbuilder	*ft_sb_last(t_strbuilder *sb);
 void			ft_sb_append(t_strbuilder **sb, char *content, int size);
 void			ft_sb_add_char(t_strbuilder **sb, char content);
 void			ft_sb_add_nchar(t_strbuilder **sb, char content, size_t nb);
-void			ft_sb_display(t_strbuilder *sb);
 void			ft_sb_debug(t_strbuilder *sb);
+int				ft_sb_display(t_strbuilder *sb);
 int				ft_sb_size(t_strbuilder *sb);
 int				ft_sb_clear(t_strbuilder **sb);
 
