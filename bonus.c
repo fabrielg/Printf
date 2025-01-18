@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:21:50 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 00:08:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,8 +209,16 @@ void	test_p() {
 #include <stdio.h>
 
 int	main(int argc, char** argv) {
-	tests_cs();
+	/*tests_cs();
 	tests_d();
 	tests_u();
-	test_p();
+	test_p();*/
+	
+	int result1;
+	int result2;
+
+	printf("========	TEST	========\n");
+	result1 = ft_printf("%042.10d\n", 42000);
+	result2 = printf("%042.10d\n", 42000);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 }
