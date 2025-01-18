@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:32:55 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:38:10 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,37 @@ int	main(int argc, char** argv) {
 	result1 = 0;
 	result2 = 0;
 	
+	char *p = "";
+	
+	result1 = ft_printf("ft: [%p] [%p]\n", 0, p);
+	result2 = printf("pf: [%p] [%p]\n", 0, p);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%1.1p] [%1.1p]\n", 0, p);
+	result2 = printf("pf: [%1.1p] [%1.1p]\n", 0, p);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%20p] [%.20p]\n", p, p);
+	result2 = printf("pf: [%20p] [%.20p]\n", p, p);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%-20p] [%-.20p]\n", p, p);
+	result2 = printf("pf: [%-20p] [%-.20p]\n", p, p);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%-20p] [%-.20p]\n", 0, 0);
+	result2 = printf("pf: [%-20p] [%-.20p]\n", 0, 0);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%20p] [%.20p]\n", 0, 0);
+	result2 = printf("pf: [%20p] [%.20p]\n", 0, 0);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+
+	result1 = ft_printf("ft: [%020p] [%.20p]\n", 0, 0);
+	result2 = printf("pf: [%020p] [%.20p]\n", 0, 0);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	
+	/*
 	result1 = ft_printf("ft: [%#010x] [%#10x] [%#.10x] [%.10x] \n", 1142, 1142, 1142, 1142);
 	result2 = printf("pf: [%#010x] [%#10x] [%#.10x] [%.10x] \n", 1142, 1142, 1142, 1142);
 	printf("result1=	%d\nresult2=	%d\n", result1, result2);
@@ -117,7 +148,6 @@ int	main(int argc, char** argv) {
 	result2 = printf("pf: [%1u] [%1u]\n", 6, 0);
 	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
-	/*
 	result1 = ft_printf("ft: [% 5d] [% 5d] [%- 5d] [%- 5d] \n", 42, -42, 42, -42);
 	result2 = printf("pf: [% 5d] [% 5d] [%- 5d] [%- 5d] \n", 42, -42, 42, -42);
 	printf("result1=	%d\nresult2=	%d\n", result1, result2);

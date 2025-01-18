@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:33:43 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:43:46 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,18 @@ int	ft_putunsignedf(t_conversion conv, va_list args, unsigned int index)
 	nb_display = ft_sb_display(sb);
 	ft_sb_clear(&sb);
 	return (nb_display);
+}
+
+int	ft_putpointerf(t_conversion conv, va_list args)
+{
+	unsigned long	address;
+	int				nb_display;
+	t_strbuilder	*sb;
+
+	address = va_arg(args, unsigned long);
+	sb = ft_sb_new();
+	if (address)
+	{
+		conv.flags |= PREFIX;
+	}
 }
