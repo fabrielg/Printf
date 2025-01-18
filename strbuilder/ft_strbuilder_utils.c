@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:10:37 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:42:36 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int	ft_sb_size(t_strbuilder *sb)
 	size = 0;
 	if (sb)
 	{
-		size += SB_SIZE;
+		size += (SB_SIZE - 1);
 		while (sb->next)
 		{
-			size += SB_SIZE;
+			size += (SB_SIZE - 1);
 			sb = sb->next;
 		}
-		size -= (SB_SIZE - sb->index);
+		size -= ((SB_SIZE - 1) - sb->index);
 	}
 	return (size);
 }

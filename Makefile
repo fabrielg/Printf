@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/18 22:54:39 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/18 23:44:23 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,8 @@ fclean: clean
 	@rm -f $(NAME)
 	@rm -f $(LIBFT)
 
+bonus: all
+
 re: fclean all
 
-.PHONY = all clean fclean re
+.PHONY = all clean fclean re bonus
