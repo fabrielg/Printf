@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 12:58:27 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:31:17 by gfrancoi         ###   ########.fr       */
+/*   Created: 2024/11/12 18:03:23 by gfrancoi          #+#    #+#             */
+/*   Updated: 2024/11/18 15:59:00 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(va_list arg)
+size_t	ft_strlen(const char *s)
 {
-	int	c;
+	size_t	i;
 
-	c = va_arg(arg, int);
-	return (write(1, &c, 1));
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

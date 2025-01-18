@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 13:00:01 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 18:56:04 by gfrancoi         ###   ########.fr       */
+/*   Created: 2024/11/12 18:05:38 by gfrancoi          #+#    #+#             */
+/*   Updated: 2024/11/19 12:10:23 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(va_list arg)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*s;
-	int		nb_display;
-
-	s = va_arg(arg, char *);
-	if (!s)
-		return (write(1, "(null)", 6));
-	nb_display = 0;
-	while (*s)
-		nb_display += write(1, s++, 1);
-	return (nb_display);
+	while (n-- > 0)
+		((unsigned char *)s)[n] = c;
+	return (s);
 }

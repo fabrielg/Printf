@@ -6,21 +6,11 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 12:46:18 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/05 12:56:50 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:43:27 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 static int	all_unique_char(char *str)
 {

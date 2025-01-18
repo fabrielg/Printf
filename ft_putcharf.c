@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   ft_putcharf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/04 17:47:02 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/01/14 15:13:59 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/01/18 18:32:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexa(va_list arg)
+void	ft_putcharf(t_strbuilder *build, t_conversion conv, int c)
 {
-	unsigned int	nbr;
+	static int	nb_display = 1;
 
-	nbr = (unsigned int)va_arg(arg, unsigned int);
-	return (ft_putnbr_unsigned_base(nbr, "0123456789abcdef"));
-}
-
-int	ft_puthexa_upper(va_list arg)
-{
-	unsigned int	nbr;
-
-	nbr = va_arg(arg, unsigned int);
-	return (ft_putnbr_unsigned_base(nbr, "0123456789ABCDEF"));
+	if (conv.specifier == 'c')
+	{
+		if (conv.flags & LEFT_ALIGN)
+			ft_sb_add_char(&build, c);
+		if (nb_display < (conv.field_width) && conv.field_width > 0)
+			ft_sb_add_nchar(&build, ' ', (conv.field_width) - nb_display);
+		if (!(conv.flags & LEFT_ALIGN))
+			ft_sb_add_char(&build, c);
+	}
+	else
+		ft_sb_add_char(&build, conv.specifier);
 }
