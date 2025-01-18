@@ -6,20 +6,20 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:34:17 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 19:08:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_add_int_base_rec(t_strbuilder *sb, unsigned int n, t_base *base)
+static void	ft_add_int_base_rec(t_strbuilder *sb, unsigned long n, t_base *base)
 {
 	if (n >= base->size)
 		ft_add_int_base_rec(sb, n / base->size, base);
 	ft_sb_add_char(&sb, base->digits[n % base->size]);
 }
 
-static void	ft_add_int_base(t_strbuilder *sb, unsigned int n, int precision, t_base *base)
+static void	ft_add_int_base(t_strbuilder *sb, unsigned long n, int precision, t_base *base)
 {
 	t_strbuilder	*temp;
 	int				size;
@@ -35,7 +35,7 @@ static void	ft_add_int_base(t_strbuilder *sb, unsigned int n, int precision, t_b
 	ft_add_int_base_rec(sb, n, base);
 }
 
-static int	ft_get_digits_formatted(t_conversion conv, unsigned int n, t_base base)
+static int	ft_get_digits_formatted(t_conversion conv, unsigned long n, t_base base)
 {
 	int				result;
 	t_strbuilder	*temp;
@@ -51,7 +51,7 @@ static int	ft_get_digits_formatted(t_conversion conv, unsigned int n, t_base bas
 	return (result);
 }
 
-void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned int n, unsigned int index)
+void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index)
 {
 	static t_base	bases[] = {
 	{"0123456789", 10, ""},
@@ -74,16 +74,18 @@ void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned int n, uns
 		ft_sb_add_nchar(&build, ' ', conv.field_width - digits_formatted);
 }
 
-int	ft_putpointerf(t_conversion conv, va_list args)
+void	ft_putpointerf(t_strbuilder *build, t_conversion conv, unsigned long address)
 {
-	unsigned long	address;
-	int				nb_display;
-	t_strbuilder	*sb;
-
-	address = va_arg(args, unsigned long);
-	sb = ft_sb_new();
 	if (address)
 	{
 		conv.flags |= PREFIX;
+		ft_putunsignedf(build, conv, address, 1);
+		return ;
 	}
+	if (conv.flags & LEFT_ALIGN)
+		ft_sb_append(&build, "(nil)", 5);
+	if (conv.field_width > 5)
+		ft_sb_add_nchar(&build, ' ', conv.field_width - 5);
+	if (!(conv.flags & LEFT_ALIGN))
+		ft_sb_append(&build, "(nil)", 5);
 }

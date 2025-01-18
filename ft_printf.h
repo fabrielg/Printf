@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:35:11 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:55:40 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_putstrf(t_strbuilder *build, t_conversion conv, char *s);
 
 /* ft_display_adress functions */
 int		ft_display_adress(va_list arg);
+void	ft_putpointerf(t_strbuilder *build, t_conversion conv, unsigned long address);
 
 /* ft_putnbr functions */
 void	ft_putnbrf(t_strbuilder *build, t_conversion conv, int n);
@@ -77,7 +78,7 @@ void	ft_putnbr_unsigned_fd(unsigned int n, int fd, int *nb_display);
 int		ft_putnbr_unsigned(va_list arg);
 
 /* ft_puthexa functions */
-void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned int n, unsigned int index);
+void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index);
 
 /* ft_putpercent functions */
 int		ft_putpercent(va_list arg);

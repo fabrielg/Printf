@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:34:26 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 19:06:27 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	apply_specifier_function(t_strbuilder *build, t_conversion conv, va_list ar
 	else if (conv.specifier == 's')
 		ft_putstrf(build, conv, va_arg(args, char *));
 	else if (conv.specifier == 'p')
-		ft_putcharf(build, conv, 0);
+		ft_putpointerf(build, conv, va_arg(args, unsigned long));
 	else if (conv.specifier == 'd' || conv.specifier == 'i')
 		ft_putnbrf(build, conv, va_arg(args, int));
 	else if (conv.specifier == 'u')
-		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 0);
+		ft_putunsignedf(build, conv, va_arg(args, unsigned int), 0);
 	else if (conv.specifier == 'x')
-		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 1);
+		ft_putunsignedf(build, conv, va_arg(args, unsigned int), 1);
 	else if (conv.specifier == 'X')
-		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 2);
+		ft_putunsignedf(build, conv, va_arg(args, unsigned int), 2);
 	else if (conv.specifier == '%')
 		ft_putcharf(build, conv, va_arg(args, int));
 }
