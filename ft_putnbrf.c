@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:48:49 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:42:27 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,42 +61,41 @@ static char	ft_get_sign_symbol(t_conversion conv, int n)
 
 static void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
 {
-	if (n == -2147483648)
-		ft_sb_append(&sb, "2147483648", 10);
-	else if (n)
-		ft_sb_append(&sb, ft_itoa(n), ft_strlen(ft_itoa(n)));
-	else if (n == 0 && conv.precision != 0)
-		ft_sb_append(&sb, ft_itoa(n), ft_strlen(ft_itoa(n)));
+	char	*nbr;
+
+	nbr = ft_itoa(n);
+	if (nbr)
+	{
+		if (n == -2147483648)
+			ft_sb_append(&sb, "2147483648", 10);
+		else if (n)
+			ft_sb_append(&sb, nbr, ft_strlen(nbr));
+		else if (n == 0 && conv.precision != 0)
+			ft_sb_append(&sb, nbr, ft_strlen(nbr));
+		free(nbr);
+	}
 }
 
-int	ft_putnbrf(t_conversion conv, int n)
+void	ft_putnbrf(t_strbuilder *build, t_conversion conv, int n)
 {
-	int				nb_display;
-	char			fill;
-	char			sign;
-	int				digits_formatted;
-	t_strbuilder	*sb;
+	char	fill;
+	char	sign;
+	int		digits_formatted;
 
 	digits_formatted = ft_get_digits_formatted(conv, n);
-	sb = ft_sb_new();
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
 	sign = ft_get_sign_symbol(conv, n);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && conv.flags & ZERO_PAD)
-		ft_sb_add_char(&sb, sign);
+		ft_sb_add_char(&build, sign);
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&sb, fill, conv.field_width - digits_formatted);
+		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && !(conv.flags & ZERO_PAD))
-		ft_sb_add_char(&sb, sign);
+		ft_sb_add_char(&build, sign);
 	if (conv.precision >= 0 && conv.precision > ft_nb_digits(n))
-		ft_sb_add_nchar(&sb, '0', conv.precision - ft_nb_digits(n));
+		ft_sb_add_nchar(&build, '0', conv.precision - ft_nb_digits(n));
 	if (n < 0)
 		n = (unsigned int)-n;
-	ft_add_int(sb, n, conv);
+	ft_add_int(build, n, conv);
 	if (conv.flags & LEFT_ALIGN && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&sb, fill, conv.field_width - digits_formatted);
-	nb_display = 0;
-	nb_display = ft_sb_size(sb);
-	ft_sb_display(sb);
-	ft_sb_clear(&sb);
-	return (nb_display);
+		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
 }
