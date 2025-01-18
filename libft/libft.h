@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:41:14 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:31:06 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 21:54:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ char	*ft_strchr(const char *s, int c);
 
 /* ft_calloc.c */
 void	*ft_calloc(size_t nmemb, size_t size);
-void	*ft_memset(void *s, int c, size_t n);
+
+/* ft_bzero.c */
 void	ft_bzero(void *s, size_t n);
+
+/* ft_memset.c */
+void	*ft_memset(void *s, int c, size_t n);
 
 /* ft_memcpy.c */
 void	*ft_memcpy(void *dest, const void *src, size_t n);

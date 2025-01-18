@@ -6,13 +6,13 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:15:15 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:08:43 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	display_formatted(t_strbuilder *build, char *s, va_list args, t_conversion *conv)
+static void	add_formatted(t_strbuilder *build, char *s, va_list args, t_conversion *conv)
 {
 	ft_memset(conv, 0, sizeof(t_conversion));
 	if (ft_parse(s, conv))
@@ -30,7 +30,7 @@ static void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
 	while (next_conv)
 	{
 		ft_sb_append(build, (char *)s, (int)(next_conv - s));
-		display_formatted(build, next_conv, args, &conv);
+		add_formatted(build, next_conv, args, &conv);
 		s += (int)(next_conv - s) + conv.length;
 		next_conv = ft_strchr(s, '%');
 	}

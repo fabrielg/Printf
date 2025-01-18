@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/18 20:30:12 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/18 20:31:53 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/18 21:55:35 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,16 @@ CFLAGS = -Wall -Wextra -Werror
 OPTION = -c
 NAME = libft.a
 
-SRCS = ft_strlen.c\
-	ft_putchar_fd.c\
-	ft_putstr_fd.c\
-	ft_putnbr_fd.c\
-	ft_strchr.c\
-	ft_calloc.c\
-	ft_memcpy.c\
-	ft_itoa.c
+SRCS =	ft_strlen.c\
+		ft_putchar_fd.c\
+		ft_putstr_fd.c\
+		ft_putnbr_fd.c\
+		ft_strchr.c\
+		ft_calloc.c\
+		ft_bzero.c\
+		ft_memset.c\
+		ft_memcpy.c\
+		ft_itoa.c
 
 OBJS = $(SRCS:.c=.o)
 

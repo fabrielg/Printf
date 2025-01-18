@@ -6,41 +6,52 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2024/12/05 12:48:42 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/18 22:54:39 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-OPTION = -c
-NAME = libftprintf.a
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+OPTION		= -c
+NAME		= libftprintf.a
 
-SRCS = ft_printf.c\
-	ft_putcharf.c\
-	ft_putstrf.c\
-	ft_display_adress.c\
-	ft_putnbr.c\
-	ft_putnbr_unsigned.c\
-	ft_putnbr_unsigned_base.c\
-	ft_putnbr_unsignedl_base.c\
-	ft_puthexa.c\
-	ft_putpercent.c
+LIBFT_PATH	= ./libft/
+LIBFT		= $(LIBFT_PATH)libft.a
 
-OBJS = ${SRCS:.c=.o}
+STRBUILDER_PATH	= ./strbuilder/
+
+SRCS =	ft_printf.c\
+		ft_add_char.c\
+		ft_add_str.c\
+		ft_add_nbr.c\
+		ft_add_unsigned.c\
+		parsing.c
+
+STRBUILDER_SRCS =	$(STRBUILDER_PATH)ft_strbuilder.c\
+					$(STRBUILDER_PATH)ft_strbuilder_utils.c
+
+OBJS			= ${SRCS:.c=.o}
+STRBUILDER_OBJS	= ${STRBUILDER_SRCS:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $@ $?
+$(NAME): $(LIBFT) $(OBJS) $(STRBUILDER_OBJS)
+	@cp $(LIBFT) $(NAME)
+	@ar -rcs $(NAME) $(OBJS) $(STRBUILDER_OBJS)
+
+$(LIBFT):
+	@make -C $(LIBFT_PATH)
 
 %o: %.c
 	$(CC) $(CFLAGS) $(OPTION) $?
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS) $(STRBUILDER_OBJS)
+	@make clean -C $(LIBFT_PATH)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
 
 re: fclean all
 
