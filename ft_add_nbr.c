@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrf.c                                       :+:      :+:    :+:   */
+/*   ft_add_nbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:42:27 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:06:24 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
 	}
 }
 
-void	ft_putnbrf(t_strbuilder *build, t_conversion conv, int n)
+void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n)
 {
 	char	fill;
 	char	sign;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putcharf.c                                      :+:      :+:    :+:   */
+/*   ft_add_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:13:59 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:32:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:05:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putcharf(t_strbuilder *build, t_conversion conv, int c)
+void	ft_add_char(t_strbuilder *build, t_conversion conv, int c)
 {
 	static int	nb_display = 1;
 

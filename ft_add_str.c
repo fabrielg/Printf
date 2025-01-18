@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrf.c                                       :+:      :+:    :+:   */
+/*   ft_add_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:09:32 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:32:59 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:05:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_get_str_null(t_conversion conv)
 	return ("");
 }
 
-void	ft_putstrf(t_strbuilder *build, t_conversion conv, char *s)
+void	ft_add_str(t_strbuilder *build, t_conversion conv, char *s)
 {
 	int	precision;
 

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:55:40 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:09:14 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ typedef struct s_specifier
 	char	c;
 	int		(*f)(va_list arg);
 }	t_specifier;
-/*
-%[+- #0]	[0-9]		.[0-9]*		[cspdiuxX%]
-Flags		Field_width	Precision	Conversion specifier
-*/
+
 typedef struct s_conversion
 {
 	char		specifier;
@@ -48,43 +45,25 @@ typedef struct s_conversion
 	int			length;
 }	t_conversion;
 
-typedef struct s_base {
+typedef struct s_base
+{
 	char			*digits;
 	unsigned int	size;
 	char			*prefix;
 }	t_base;
 
-/* ft_printf functions */
 int		ft_printf(const char *s, ...);
 int		ft_parse(const char *format, t_conversion *conv);
-void	apply_specifier_function(t_strbuilder *build, t_conversion conv, va_list args);
-void	printf_conv(t_conversion conv);
+void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args);
 
-/* ft_putcharf functions */
-void	ft_putcharf(t_strbuilder *build, t_conversion conv, int c);
+void	ft_add_char(t_strbuilder *build, t_conversion conv, int c);
 
-/* ft_putstrf functions */
-void	ft_putstrf(t_strbuilder *build, t_conversion conv, char *s);
+void	ft_add_str(t_strbuilder *build, t_conversion conv, char *s);
 
-/* ft_display_adress functions */
-int		ft_display_adress(va_list arg);
-void	ft_putpointerf(t_strbuilder *build, t_conversion conv, unsigned long address);
+void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n);
 
-/* ft_putnbr functions */
-void	ft_putnbrf(t_strbuilder *build, t_conversion conv, int n);
+void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index);
 
-/* ft_putnbr_unsigned functions */
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd, int *nb_display);
-int		ft_putnbr_unsigned(va_list arg);
-
-/* ft_puthexa functions */
-void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index);
-
-/* ft_putpercent functions */
-int		ft_putpercent(va_list arg);
-
-/* utils functions */
-int		ft_putnbr_unsigned_base(unsigned int nbr, char *base);
-int		ft_putnbr_unsignedl_base(unsigned long nbr, char *base);
+void	ft_add_pointer(t_strbuilder *build, t_conversion conv, unsigned long address);
 
 #endif

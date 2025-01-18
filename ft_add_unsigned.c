@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsignedf.c                                  :+:      :+:    :+:   */
+/*   ft_add_unsigned.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 19:08:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:11:22 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_get_digits_formatted(t_conversion conv, unsigned long n, t_base ba
 	return (result);
 }
 
-void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index)
+void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index)
 {
 	static t_base	bases[] = {
 	{"0123456789", 10, ""},
@@ -74,12 +74,12 @@ void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned long n, un
 		ft_sb_add_nchar(&build, ' ', conv.field_width - digits_formatted);
 }
 
-void	ft_putpointerf(t_strbuilder *build, t_conversion conv, unsigned long address)
+void	ft_add_pointer(t_strbuilder *build, t_conversion conv, unsigned long address)
 {
 	if (address)
 	{
 		conv.flags |= PREFIX;
-		ft_putunsignedf(build, conv, address, 1);
+		ft_add_unsigned(build, conv, address, 1);
 		return ;
 	}
 	if (conv.flags & LEFT_ALIGN)
