@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 10:50:15 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/16 14:56:21 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:52:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		nbr *= -1;
+		printf("TEST/ %ld\n", nbr);
 		digits++;
 	}
 	result = ft_calloc((digits + 1), sizeof(char));

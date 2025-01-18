@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:36:56 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/18 12:51:37 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 13:10:33 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	ft_parse(const char *format, t_conversion *conv)
 	{
 		format++;
 		conv->precision = check_field_width_precision(&format);
+		if (conv->precision == -1)
+			conv->precision = 0;
 	}
 	if (ft_strchr("cspdiuxX%", *format))
 	{

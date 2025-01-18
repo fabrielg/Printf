@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/16 13:58:02 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 13:29:06 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,63 +84,63 @@ int	main(int argc, char** argv) {
 
 	result1 = ft_printf("ft: [% 5d] [% 5d] [%- 5d] [%- 5d] \n", 42, -42, 42, -42);
 	result2 = printf("pf: [% 5d] [% 5d] [%- 5d] [%- 5d] \n", 42, -42, 42, -42);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%+d] [%+d] [%+5d] [%+5d] \n", 10, -10, 10, -10);
 	result2 = printf("pf: [%+d] [%+d] [%+5d] [%+5d] \n", 10, -10, 10, -10);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%-+5d] [%-+5d] \n", 10, -10);
 	result2 = printf("pf: [%-+5d] [%-+5d] \n", 10, -10);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%04d] [%0 4d] [%0+4d] [%#4d] \n", 5, 5, 5, 5);
 	result2 = printf("pf: [%04d] [%0 4d] [%0+4d] [%#4d] \n", 5, 5, 5, 5);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 	
 	result1 = ft_printf("ft: [%.4d] [% .4d] [%+.4d] [%#.4d] \n", 5, 5, 5, 5);
 	result2 = printf("pf: [%.4d] [% .4d] [%+.4d] [%#.4d] \n", 5, 5, 5, 5);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%7.4d] [% 7.4d] [%+7.4d] [%#7.4d] \n", 5, 5, 5, 5);
 	result2 = printf("pf: [%7.4d] [% 7.4d] [%+7.4d] [%#7.4d] \n", 5, 5, 5, 5);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%d] [%d] [%d] [%d] [%d]\n", 0, 42, -42, 0x7FFFFFFF, 0x80000000);
 	result2 = printf("pf: [%d] [%d] [%d] [%d] [%d]\n", 0, 42, -42, 0x7FFFFFFF, 0x80000000);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%d] [%d] [%d] [%d] [%d] [%d]\n", -1, -12, -23, -89, -90, -101);
 	result2 = printf("pf: [%d] [%d] [%d] [%d] [%d] [%d]\n", -1, -12, -23, -89, -90, -101);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%d] [%d] [%d] [%d]\n", -0, -4, -9, -7);
 	result2 = printf("pf: [%d] [%d] [%d] [%d]\n", -0, -4, -9, -7);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%.5d] [%.6d]\n", -4, -666);
 	result2 = printf("pf: [%.5d] [%.6d]\n", -4, -666);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%6.4d] [%06d]\n", -42, -42);
 	result2 = printf("pf: [%6.4d] [%06d]\n", -42, -42);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%1d] [%-1d] [%1.1d] [%-1.1d]\n", 0, 0, 0, 0);
 	result2 = printf("pf: [%1d] [%-1d] [%1.1d] [%-1.1d]\n", 0, 0, 0, 0);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%.0d] [%.d]\n", 0, 0);
 	result2 = printf("pf: [%.0d] [%.d]\n", 0, 0);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%.4d] [%.0d]\n", 69420, 69420);
 	result2 = printf("pf: [%.4d] [%.0d]\n", 69420, 69420);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 
 	result1 = ft_printf("ft: [%-10.d] [%0-10.d] [%01.0d] [%1.0d]\n", 0, 0, 0, 0);
 	result2 = printf("pf: [%-10.d] [%0-10.d] [%01.0d] [%1.0d]\n", 0, 0, 0, 0);
-	// printf("result1=	%d\nresult2=	%d\n", result1, result2);
+	printf("result1=	%d\nresult2=	%d\n", result1, result2);
 	/*
 	result1 = ft_printf("ft: [%4s] [%4s] [%.4s] [%.4s] \n", "01", "012345", "01", "012345");
 	result2 = printf("pf: [%4s] [%4s] [%.4s] [%.4s] \n", "01", "012345", "01", "012345");
