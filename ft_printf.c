@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:11:49 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:15:15 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	display_formatted(t_strbuilder *build, char *s, va_list args, t_conv
 	if (ft_parse(s, conv))
 		apply_specifier(build, *conv, args);
 	else
-		ft_sb_append(&build, s, conv->length);
+		ft_sb_append(build, s, conv->length);
 }
 
 static void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
@@ -29,12 +29,12 @@ static void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
 	next_conv = ft_strchr(s, '%');
 	while (next_conv)
 	{
-		ft_sb_append(&build, (char *)s, (int)(next_conv - s));
+		ft_sb_append(build, (char *)s, (int)(next_conv - s));
 		display_formatted(build, next_conv, args, &conv);
 		s += (int)(next_conv - s) + conv.length;
 		next_conv = ft_strchr(s, '%');
 	}
-	ft_sb_append(&build, (char *)s, ft_strlen(s));
+	ft_sb_append(build, (char *)s, ft_strlen(s));
 }
 
 void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args)

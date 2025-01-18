@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:11:22 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:16:51 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_add_int_base_rec(t_strbuilder *sb, unsigned long n, t_base *base)
 {
 	if (n >= base->size)
 		ft_add_int_base_rec(sb, n / base->size, base);
-	ft_sb_add_char(&sb, base->digits[n % base->size]);
+	ft_sb_add_char(sb, base->digits[n % base->size]);
 }
 
 static void	ft_add_int_base(t_strbuilder *sb, unsigned long n, int precision, t_base *base)
@@ -31,7 +31,7 @@ static void	ft_add_int_base(t_strbuilder *sb, unsigned long n, int precision, t_
 	size = ft_sb_size(temp);
 	ft_sb_clear(&temp);
 	if (precision >= 0 && precision > size)
-		ft_sb_add_nchar(&sb, '0', precision - size);
+		ft_sb_add_nchar(sb, '0', precision - size);
 	ft_add_int_base_rec(sb, n, base);
 }
 
@@ -64,14 +64,14 @@ void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, unsigned long n, un
 	digits_formatted = ft_get_digits_formatted(conv, n, bases[index]);
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
 	if (conv.flags & ZERO_PAD && conv.flags & PREFIX && n)
-		ft_sb_append(&build, bases[index].prefix, ft_strlen(bases[index].prefix));
+		ft_sb_append(build, bases[index].prefix, ft_strlen(bases[index].prefix));
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
+		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
 	if (!(conv.flags & ZERO_PAD) && conv.flags & PREFIX && n)
-		ft_sb_append(&build, bases[index].prefix, ft_strlen(bases[index].prefix));
+		ft_sb_append(build, bases[index].prefix, ft_strlen(bases[index].prefix));
 	ft_add_int_base(build, n, conv.precision, &(bases[index]));
 	if (conv.flags & LEFT_ALIGN && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&build, ' ', conv.field_width - digits_formatted);
+		ft_sb_add_nchar(build, ' ', conv.field_width - digits_formatted);
 }
 
 void	ft_add_pointer(t_strbuilder *build, t_conversion conv, unsigned long address)
@@ -83,9 +83,9 @@ void	ft_add_pointer(t_strbuilder *build, t_conversion conv, unsigned long addres
 		return ;
 	}
 	if (conv.flags & LEFT_ALIGN)
-		ft_sb_append(&build, "(nil)", 5);
+		ft_sb_append(build, "(nil)", 5);
 	if (conv.field_width > 5)
-		ft_sb_add_nchar(&build, ' ', conv.field_width - 5);
+		ft_sb_add_nchar(build, ' ', conv.field_width - 5);
 	if (!(conv.flags & LEFT_ALIGN))
-		ft_sb_append(&build, "(nil)", 5);
+		ft_sb_append(build, "(nil)", 5);
 }

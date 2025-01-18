@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:06:24 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:16:34 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ static void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
 	if (nbr)
 	{
 		if (n == -2147483648)
-			ft_sb_append(&sb, "2147483648", 10);
+			ft_sb_append(sb, "2147483648", 10);
 		else if (n)
-			ft_sb_append(&sb, nbr, ft_strlen(nbr));
+			ft_sb_append(sb, nbr, ft_strlen(nbr));
 		else if (n == 0 && conv.precision != 0)
-			ft_sb_append(&sb, nbr, ft_strlen(nbr));
+			ft_sb_append(sb, nbr, ft_strlen(nbr));
 		free(nbr);
 	}
 }
@@ -86,16 +86,16 @@ void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n)
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
 	sign = ft_get_sign_symbol(conv, n);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && conv.flags & ZERO_PAD)
-		ft_sb_add_char(&build, sign);
+		ft_sb_add_char(build, sign);
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
+		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && !(conv.flags & ZERO_PAD))
-		ft_sb_add_char(&build, sign);
+		ft_sb_add_char(build, sign);
 	if (conv.precision >= 0 && conv.precision > ft_nb_digits(n))
-		ft_sb_add_nchar(&build, '0', conv.precision - ft_nb_digits(n));
+		ft_sb_add_nchar(build, '0', conv.precision - ft_nb_digits(n));
 	if (n < 0)
 		n = (unsigned int)-n;
 	ft_add_int(build, n, conv);
 	if (conv.flags & LEFT_ALIGN && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
+		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
 }
