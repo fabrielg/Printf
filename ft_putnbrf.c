@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 13:31:19 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:50:45 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_nb_digits(int n)
 	return (result);
 }
 
-int	ft_get_digits_formatted(t_conversion conv, int n)
+static int	ft_get_digits_formatted(t_conversion conv, int n)
 {
 	int	result;
 
@@ -50,7 +50,7 @@ int	ft_get_digits_formatted(t_conversion conv, int n)
 	return (result);
 }
 
-char	ft_get_sign_symbol(t_conversion conv, int n)
+static char	ft_get_sign_symbol(t_conversion conv, int n)
 {
 	if (n > 0 && conv.flags & SIGNED)
 		return ('+');
@@ -59,7 +59,7 @@ char	ft_get_sign_symbol(t_conversion conv, int n)
 	return ('-');
 }
 
-void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
+static void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
 {
 	if (n == -2147483648)
 		ft_sb_append(&sb, "2147483648", 10);

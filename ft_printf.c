@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/14 18:12:00 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:34:45 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	apply_specifier_function(t_conversion conv, va_list args)
 	else if (conv.specifier == 'd' || conv.specifier == 'i')
 		return (ft_putnbrf(conv, args));
 	else if (conv.specifier == 'u')
-		ft_putcharf(conv, args);
+		return (ft_putunsignedf(conv, args, 0));
 	else if (conv.specifier == 'x')
-		ft_putcharf(conv, args);
+		return (ft_putunsignedf(conv, args, 1));
 	else if (conv.specifier == 'X')
-		ft_putcharf(conv, args);
+		return (ft_putunsignedf(conv, args, 2));
 	else if (conv.specifier == '%')
 		return (ft_putcharf(conv, args));
 	return (0);

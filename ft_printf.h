@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/14 18:20:11 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:32:01 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ typedef struct s_conversion
 	int			length;
 }	t_conversion;
 
+typedef struct s_base {
+	char			*digits;
+	unsigned int	size;
+	char			*prefix;
+}	t_base;
+
 /* ft_printf functions */
 int		ft_printf(const char *s, ...);
 int		ft_parse(const char *format, t_conversion *conv);
@@ -71,8 +77,7 @@ void	ft_putnbr_unsigned_fd(unsigned int n, int fd, int *nb_display);
 int		ft_putnbr_unsigned(va_list arg);
 
 /* ft_puthexa functions */
-int		ft_puthexa(va_list arg);
-int		ft_puthexa_upper(va_list arg);
+int		ft_putunsignedf(t_conversion conv, va_list args, unsigned int index);
 
 /* ft_putpercent functions */
 int		ft_putpercent(va_list arg);
