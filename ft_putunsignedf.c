@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:43:46 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:34:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,35 +51,27 @@ static int	ft_get_digits_formatted(t_conversion conv, unsigned int n, t_base bas
 	return (result);
 }
 
-int	ft_putunsignedf(t_conversion conv, va_list args, unsigned int index)
+void	ft_putunsignedf(t_strbuilder *build, t_conversion conv, unsigned int n, unsigned int index)
 {
 	static t_base	bases[] = {
 	{"0123456789", 10, ""},
 	{"0123456789abcdef", 16, "0x"},
 	{"0123456789ABCDEF", 16, "0x"}
 	};
-	unsigned int	n;
 	int				digits_formatted;
 	char			fill;
-	int				nb_display;
-	t_strbuilder	*sb;
 
-	n = (unsigned int)va_arg(args, unsigned int);
-	sb = ft_sb_new();
 	digits_formatted = ft_get_digits_formatted(conv, n, bases[index]);
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
 	if (conv.flags & ZERO_PAD && conv.flags & PREFIX && n)
-		ft_sb_append(&sb, bases[index].prefix, ft_strlen(bases[index].prefix));
+		ft_sb_append(&build, bases[index].prefix, ft_strlen(bases[index].prefix));
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&sb, fill, conv.field_width - digits_formatted);
+		ft_sb_add_nchar(&build, fill, conv.field_width - digits_formatted);
 	if (!(conv.flags & ZERO_PAD) && conv.flags & PREFIX && n)
-		ft_sb_append(&sb, bases[index].prefix, ft_strlen(bases[index].prefix));
-	ft_add_int_base(sb, n, conv.precision, &(bases[index]));
+		ft_sb_append(&build, bases[index].prefix, ft_strlen(bases[index].prefix));
+	ft_add_int_base(build, n, conv.precision, &(bases[index]));
 	if (conv.flags & LEFT_ALIGN && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(&sb, ' ', conv.field_width - digits_formatted);
-	nb_display = ft_sb_display(sb);
-	ft_sb_clear(&sb);
-	return (nb_display);
+		ft_sb_add_nchar(&build, ' ', conv.field_width - digits_formatted);
 }
 
 int	ft_putpointerf(t_conversion conv, va_list args)

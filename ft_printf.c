@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 15:34:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:34:26 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,61 +21,63 @@ void	printf_conv(t_conversion conv)
 	printf("length:			[%d]\n", conv.length);
 }
 
-int	apply_specifier_function(t_conversion conv, va_list args)
+void	apply_specifier_function(t_strbuilder *build, t_conversion conv, va_list args)
 {
 	if (conv.specifier == 'c')
-		return (ft_putcharf(conv, args));
+		ft_putcharf(build, conv, va_arg(args, int));
 	else if (conv.specifier == 's')
-		return (ft_putstrf(conv, args));
+		ft_putstrf(build, conv, va_arg(args, char *));
 	else if (conv.specifier == 'p')
-		ft_putcharf(conv, args);
+		ft_putcharf(build, conv, 0);
 	else if (conv.specifier == 'd' || conv.specifier == 'i')
-		return (ft_putnbrf(conv, args));
+		ft_putnbrf(build, conv, va_arg(args, int));
 	else if (conv.specifier == 'u')
-		return (ft_putunsignedf(conv, args, 0));
+		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 0);
 	else if (conv.specifier == 'x')
-		return (ft_putunsignedf(conv, args, 1));
+		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 1);
 	else if (conv.specifier == 'X')
-		return (ft_putunsignedf(conv, args, 2));
+		ft_putunsignedf(build, conv, (unsigned int)va_arg(args, unsigned int), 2);
 	else if (conv.specifier == '%')
-		return (ft_putcharf(conv, args));
-	return (0);
+		ft_putcharf(build, conv, va_arg(args, int));
 }
 
-static int	display_formatted(char *s, va_list args, t_conversion *conv)
+static void	display_formatted(t_strbuilder *build, char *s, va_list args, t_conversion *conv)
 {
 	ft_memset(conv, 0, sizeof(t_conversion));
 	if (ft_parse(s, conv))
-		return (apply_specifier_function(*conv, args));
-	return (write(1, s, conv->length));
+		apply_specifier_function(build, *conv, args);
+	else
+		ft_sb_append(&build, s, conv->length);
 }
 
-int	ft_sprintf(const char *s, va_list args)
+void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
 {
-	int				nb_display;
 	char			*next_conv;
 	t_conversion	conv;
 
-	nb_display = 0;
 	next_conv = ft_strchr(s, '%');
 	while (next_conv)
 	{
-		nb_display += write(1, s, (int)(next_conv - s));
-		nb_display += display_formatted(next_conv, args, &conv);
+		ft_sb_append(&build, (char *)s, (int)(next_conv - s));
+		display_formatted(build, next_conv, args, &conv);
 		s += (int)(next_conv - s) + conv.length;
 		next_conv = ft_strchr(s, '%');
 	}
-	nb_display += write(1, s, ft_strlen(s));
-	return (nb_display);
+	ft_sb_append(&build, (char *)s, ft_strlen(s));
 }
 
 int	ft_printf(const char *s, ...)
 {
-	va_list	args;
-	int		nb_display;
+	t_strbuilder	*build;
+	va_list			args;
+	int				nb_display;
 
+	build = ft_sb_new();
 	va_start(args, s);
-	nb_display = ft_sprintf(s, args);
+	ft_sprintf(build, s, args);
 	va_end(args);
+	nb_display = ft_sb_size(build);
+	ft_sb_display(build);
+	ft_sb_clear(&build);
 	return (nb_display);
 }
