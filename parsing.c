@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:36:56 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 23:27:58 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 00:01:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static char	*next_in_charset(const char *s, char *charset)
 
 	if (!s)
 		return (NULL);
-	i = 0;
 	while (*s)
 	{
+		i = 0;
 		while (charset[i])
 		{
 			if (*s == charset[i])
