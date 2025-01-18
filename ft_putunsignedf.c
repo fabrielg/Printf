@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:43:46 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:52:09 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,18 @@ static int	ft_get_digits_formatted(t_conversion conv, unsigned int n, t_base bas
 	return (result);
 }
 
-int	ft_putunsignedf(t_conversion conv, va_list args, unsigned int index)
+int	ft_putunsignedf(t_conversion conv, unsigned int n, unsigned int index)
 {
 	static t_base	bases[] = {
 	{"0123456789", 10, ""},
 	{"0123456789abcdef", 16, "0x"},
 	{"0123456789ABCDEF", 16, "0x"}
 	};
-	unsigned int	n;
 	int				digits_formatted;
 	char			fill;
 	int				nb_display;
 	t_strbuilder	*sb;
 
-	n = (unsigned int)va_arg(args, unsigned int);
 	sb = ft_sb_new();
 	digits_formatted = ft_get_digits_formatted(conv, n, bases[index]);
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;

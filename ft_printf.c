@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 15:34:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:53:19 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	printf_conv(t_conversion conv)
 int	apply_specifier_function(t_conversion conv, va_list args)
 {
 	if (conv.specifier == 'c')
-		return (ft_putcharf(conv, args));
+		return (ft_putcharf(conv, va_arg(args, int)));
 	else if (conv.specifier == 's')
-		return (ft_putstrf(conv, args));
+		return (ft_putstrf(conv, va_arg(args, char *)));
 	else if (conv.specifier == 'p')
-		ft_putcharf(conv, args);
+		ft_putcharf(conv, 0);
 	else if (conv.specifier == 'd' || conv.specifier == 'i')
-		return (ft_putnbrf(conv, args));
+		return (ft_putnbrf(conv, va_arg(args, int)));
 	else if (conv.specifier == 'u')
-		return (ft_putunsignedf(conv, args, 0));
+		return (ft_putunsignedf(conv, (unsigned int)va_arg(args, unsigned int), 0));
 	else if (conv.specifier == 'x')
-		return (ft_putunsignedf(conv, args, 1));
+		return (ft_putunsignedf(conv, (unsigned int)va_arg(args, unsigned int), 1));
 	else if (conv.specifier == 'X')
-		return (ft_putunsignedf(conv, args, 2));
+		return (ft_putunsignedf(conv, (unsigned int)va_arg(args, unsigned int), 2));
 	else if (conv.specifier == '%')
-		return (ft_putcharf(conv, args));
+		return (ft_putcharf(conv, va_arg(args, int)));
 	return (0);
 }
 

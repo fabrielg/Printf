@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 14:50:45 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:48:49 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,14 @@ static void	ft_add_int(t_strbuilder *sb, int n, t_conversion conv)
 		ft_sb_append(&sb, ft_itoa(n), ft_strlen(ft_itoa(n)));
 }
 
-int	ft_putnbrf(t_conversion conv, va_list args)
+int	ft_putnbrf(t_conversion conv, int n)
 {
-	int				n;
 	int				nb_display;
 	char			fill;
 	char			sign;
 	int				digits_formatted;
 	t_strbuilder	*sb;
 
-	n = va_arg(args, int);
 	digits_formatted = ft_get_digits_formatted(conv, n);
 	sb = ft_sb_new();
 	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
