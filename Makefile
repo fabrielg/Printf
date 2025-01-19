@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/18 23:44:23 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/19 15:04:20 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,6 @@ $(NAME): $(LIBFT) $(OBJS) $(STRBUILDER_OBJS)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
-
-%o: %.c
-	$(CC) $(CFLAGS) $(OPTION) $?
 
 clean:
 	@rm -f $(OBJS) $(STRBUILDER_OBJS)

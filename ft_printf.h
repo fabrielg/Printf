@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 14:51:06 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 15:16:15 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@
 # define LEFT_ALIGN	0b00100 // -
 # define SPACE		0b01000 // ' '
 # define SIGNED		0b10000 // +
-
-# define FLAGS			1
-# define FIELD_WIDTH	2
-# define PRECISION		3
-# define SPECIFIER		4
 
 typedef struct s_specifier
 {

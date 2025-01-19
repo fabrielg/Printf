@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:41:14 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 14:45:09 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 15:24:49 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void	*ft_memset(void *s, int c, size_t n);
 
 /* ft_memcpy.c */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+/* ft_nb_digits.c */
+int		ft_nb_digits(int n);
 
 /* ft_itoa.c */
 char	*ft_itoa(int n);

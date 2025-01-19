@@ -6,28 +6,11 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 14:52:19 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 15:26:04 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_nb_digits(int n)
-{
-	int	result;
-
-	if (n == -2147483648)
-		return (10);
-	if (n < 0)
-		n *= -1;
-	result = 1;
-	while (n >= 10)
-	{
-		n /= 10;
-		result++;
-	}
-	return (result);
-}
 
 static int	ft_nb_digits_formatted(t_conversion conv, int n)
 {
