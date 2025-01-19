@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:16:34 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 13:16:11 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ static int	ft_get_digits_formatted(t_conversion conv, int n)
 
 static char	ft_get_sign_symbol(t_conversion conv, int n)
 {
-	if (n > 0 && conv.flags & SIGNED)
+	if (n >= 0 && conv.flags & SIGNED)
 		return ('+');
-	else if (n > 0 && conv.flags & SPACE)
+	else if (n >= 0 && conv.flags & SPACE)
 		return (' ');
 	return ('-');
 }
@@ -83,13 +83,13 @@ void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n)
 	int		digits_formatted;
 
 	digits_formatted = ft_get_digits_formatted(conv, n);
-	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
+	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted * (conv.precision == -1);
 	sign = ft_get_sign_symbol(conv, n);
-	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && conv.flags & ZERO_PAD)
+	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && fill == '0')
 		ft_sb_add_char(build, sign);
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
 		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
-	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && !(conv.flags & ZERO_PAD))
+	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && fill == ' ')
 		ft_sb_add_char(build, sign);
 	if (conv.precision >= 0 && conv.precision > ft_nb_digits(n))
 		ft_sb_add_nchar(build, '0', conv.precision - ft_nb_digits(n));
