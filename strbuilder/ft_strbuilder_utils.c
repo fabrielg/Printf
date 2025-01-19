@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 23:42:36 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:21:38 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ int	ft_sb_display(t_strbuilder *sb)
 	char	*build;
 	int		index;
 	int		nb_display;
+	int		size;
 
-	build = ft_calloc(ft_sb_size(sb), sizeof(char) + 1);
+	size = ft_sb_size(sb);
+	if (size < 1)
+		return (0);
+	build = ft_calloc(size, sizeof(char) + 1);
 	if (!build)
 		return (-1);
 	index = 0;
