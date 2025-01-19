@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_adress.c                                :+:      :+:    :+:   */
+/*   ft_nb_digits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 17:15:16 by gfrancoi          #+#    #+#             */
-/*   Updated: 2024/12/05 12:53:12 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/01/19 15:19:18 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/01/19 15:25:23 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_display_adress(va_list arg)
+int	ft_nb_digits(int n)
 {
-	unsigned long	address;
-	int				nb_display;
+	int	result;
 
-	address = va_arg(arg, unsigned long);
-	nb_display = 0;
-	if (!address)
-		nb_display += write(1, "(nil)", 5);
-	else
+	if (n == -2147483648)
+		return (10);
+	if (n < 0)
+		n *= -1;
+	result = 1;
+	while (n >= 10)
 	{
-		nb_display += write(1, "0x", 2);
-		nb_display += ft_putnbr_unsignedl_base(address, "0123456789abcdef");
+		n /= 10;
+		result++;
 	}
-	return (nb_display);
+	return (result);
 }

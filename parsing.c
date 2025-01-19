@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:36:56 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 13:10:33 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 00:01:12 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ static int	check_field_width_precision(const char **format)
 
 static char	*next_in_charset(const char *s, char *charset)
 {
-	char	*next;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		i = 0;
 		while (charset[i])
 		{
-			next = ft_strchr(s, charset[i]);
-			if (next)
-				return (next);
+			if (*s == charset[i])
+				return ((char *)s);
 			i++;
 		}
 		s++;

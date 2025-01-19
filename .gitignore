@@ -1,0 +1,5 @@
+bonus.c
+*.test
+*.out
+
+.vscode

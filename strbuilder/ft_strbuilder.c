@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:25:47 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/16 14:02:36 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:31:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ t_strbuilder	*ft_sb_last(t_strbuilder *sb)
 	return (last);
 }
 
-void	ft_sb_append(t_strbuilder **sb, char *content, int size)
+void	ft_sb_append(t_strbuilder *sb, char *content, int size)
 {
 	t_strbuilder	*append;
 	int				i;
 
-	if (!sb || !*sb || !content || size < 0)
+	if (!sb || !content || size < 0)
 		return ;
 	i = 0;
-	append = ft_sb_last(*sb);
+	append = ft_sb_last(sb);
 	while (i < size)
 	{
 		if (append->index >= (SB_SIZE - 1))
@@ -61,7 +61,7 @@ void	ft_sb_append(t_strbuilder **sb, char *content, int size)
 	}
 }
 
-void	ft_sb_add_char(t_strbuilder **sb, char content)
+void	ft_sb_add_char(t_strbuilder *sb, char content)
 {
 	char	char_str[1];
 
@@ -69,7 +69,7 @@ void	ft_sb_add_char(t_strbuilder **sb, char content)
 	ft_sb_append(sb, char_str, 1);
 }
 
-void	ft_sb_add_nchar(t_strbuilder **sb, char content, size_t nb)
+void	ft_sb_add_nchar(t_strbuilder *sb, char content, size_t nb)
 {
 	size_t	i;
 
@@ -80,21 +80,3 @@ void	ft_sb_add_nchar(t_strbuilder **sb, char content, size_t nb)
 		i++;
 	}
 }
-/*
-int	main(void)
-{
-	t_strbuilder	*test;
-	char			*str = "Je suis un test";
-
-	test = ft_sb_new();
-	ft_sb_append(&test, str, ft_strlen(str));
-	ft_sb_add_char(&test, ' ');
-	ft_sb_append(&test, ";)", 2);
-	ft_sb_add_char(&test, ' ');
-	ft_sb_add_nchar(&test, '!', 3);
-	ft_sb_display(test);
-	printf("\nsize: %d\n", ft_sb_size(test));
-	ft_sb_debug(test);
-	ft_sb_clear(&test);
-}
-*/

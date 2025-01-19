@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrf.c                                       :+:      :+:    :+:   */
+/*   ft_add_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:09:32 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 18:32:59 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:16:37 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_get_str_null(t_conversion conv)
 	return ("");
 }
 
-void	ft_putstrf(t_strbuilder *build, t_conversion conv, char *s)
+void	ft_add_str(t_strbuilder *build, t_conversion conv, char *s)
 {
 	int	precision;
 
@@ -36,9 +36,9 @@ void	ft_putstrf(t_strbuilder *build, t_conversion conv, char *s)
 	if (precision < 0)
 		precision = ft_strlen(s);
 	if (conv.flags & LEFT_ALIGN && s)
-		ft_sb_append(&build, s, precision);
+		ft_sb_append(build, s, precision);
 	if (conv.field_width > precision)
-		ft_sb_add_nchar(&build, ' ', conv.field_width - precision);
+		ft_sb_add_nchar(build, ' ', conv.field_width - precision);
 	if (!(conv.flags & LEFT_ALIGN) && s)
-		ft_sb_append(&build, s, precision);
+		ft_sb_append(build, s, precision);
 }
