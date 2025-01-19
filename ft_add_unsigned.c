@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:36:54 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:16:51 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 13:19:44 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, unsigned long n, un
 	static t_base	bases[] = {
 	{"0123456789", 10, ""},
 	{"0123456789abcdef", 16, "0x"},
-	{"0123456789ABCDEF", 16, "0x"}
+	{"0123456789ABCDEF", 16, "0X"}
 	};
 	int				digits_formatted;
 	char			fill;
 
 	digits_formatted = ft_get_digits_formatted(conv, n, bases[index]);
-	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted;
+	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted * (conv.precision == -1);
 	if (conv.flags & ZERO_PAD && conv.flags & PREFIX && n)
 		ft_sb_append(build, bases[index].prefix, ft_strlen(bases[index].prefix));
 	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
