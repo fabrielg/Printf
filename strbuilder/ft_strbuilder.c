@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:25:47 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:15:29 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:31:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_sb_append(t_strbuilder *sb, char *content, int size)
 	t_strbuilder	*append;
 	int				i;
 
-	if (!sb  || !content || size < 0)
+	if (!sb || !content || size < 0)
 		return ;
 	i = 0;
 	append = ft_sb_last(sb);

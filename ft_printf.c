@@ -6,20 +6,11 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 23:52:42 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:49:02 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	add_formatted(t_strbuilder *build, char *s, va_list args, t_conversion *conv)
-{
-	ft_memset(conv, 0, sizeof(t_conversion));
-	if (ft_parse(s, conv))
-		apply_specifier(build, *conv, args);
-	else
-		ft_sb_append(build, s, conv->length);
-}
 
 static void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
 {
@@ -35,6 +26,15 @@ static void	ft_sprintf(t_strbuilder *build, const char *s, va_list args)
 		next_conv = ft_strchr(s, '%');
 	}
 	ft_sb_append(build, (char *)s, ft_strlen(s));
+}
+
+void	add_formatted(t_strbuilder *b, char *s, va_list args, t_conversion *c)
+{
+	ft_memset(c, 0, sizeof(t_conversion));
+	if (ft_parse(s, c))
+		apply_specifier(b, *c, args);
+	else
+		ft_sb_append(b, s, c->length);
 }
 
 void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args)

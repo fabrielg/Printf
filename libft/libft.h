@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:41:14 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 21:54:17 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:45:09 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef UL
+#  define UL unsigned long
+# endif
+
+# ifndef UI
+#  define UI unsigned int
+# endif
 
 /* ft_strlen.c */
 size_t	ft_strlen(const char *s);

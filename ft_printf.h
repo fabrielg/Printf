@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:09:14 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:51:06 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_base
 }	t_base;
 
 int		ft_printf(const char *s, ...);
+void	add_formatted(t_strbuilder *b, char *s, va_list args, t_conversion *c);
 int		ft_parse(const char *format, t_conversion *conv);
 void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args);
 
@@ -62,8 +63,8 @@ void	ft_add_str(t_strbuilder *build, t_conversion conv, char *s);
 
 void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n);
 
-void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, unsigned long n, unsigned int index);
+void	ft_add_unsigned(t_strbuilder *build, t_conversion conv, UL n, UI i);
 
-void	ft_add_pointer(t_strbuilder *build, t_conversion conv, unsigned long address);
+void	ft_add_pointer(t_strbuilder *build, t_conversion conv, UL address);
 
 #endif

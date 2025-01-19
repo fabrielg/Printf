@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 13:16:11 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:52:19 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_nb_digits(int n)
 	return (result);
 }
 
-static int	ft_get_digits_formatted(t_conversion conv, int n)
+static int	ft_nb_digits_formatted(t_conversion conv, int n)
 {
 	int	result;
 
@@ -80,15 +80,18 @@ void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n)
 {
 	char	fill;
 	char	sign;
-	int		digits_formatted;
+	int		digits;
 
-	digits_formatted = ft_get_digits_formatted(conv, n);
-	fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits_formatted * (conv.precision == -1);
+	digits = ft_nb_digits_formatted(conv, n);
+	if (conv.precision != -1)
+		fill = ' ';
+	else
+		fill = ' ' + !!(conv.flags & ZERO_PAD) * ('0' - ' ') * !!digits;
 	sign = ft_get_sign_symbol(conv, n);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && fill == '0')
 		ft_sb_add_char(build, sign);
-	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
+	if (!(conv.flags & LEFT_ALIGN) && conv.field_width > digits)
+		ft_sb_add_nchar(build, fill, conv.field_width - digits);
 	if ((conv.flags & SIGNED || conv.flags & SPACE || n < 0) && fill == ' ')
 		ft_sb_add_char(build, sign);
 	if (conv.precision >= 0 && conv.precision > ft_nb_digits(n))
@@ -96,6 +99,6 @@ void	ft_add_nbr(t_strbuilder *build, t_conversion conv, int n)
 	if (n < 0)
 		n = (unsigned int)-n;
 	ft_add_int(build, n, conv);
-	if (conv.flags & LEFT_ALIGN && conv.field_width > digits_formatted)
-		ft_sb_add_nchar(build, fill, conv.field_width - digits_formatted);
+	if (conv.flags & LEFT_ALIGN && conv.field_width > digits)
+		ft_sb_add_nchar(build, fill, conv.field_width - digits);
 }
