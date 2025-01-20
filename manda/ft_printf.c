@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/20 12:53:17 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:07:24 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int	ft_printf(const char *s, ...)
 	nb_display = ft_sb_size(build);
 	ft_sb_display(build);
 	ft_sb_clear(&build);
-	return (nb_display + 1);
+	return (nb_display);
 }
