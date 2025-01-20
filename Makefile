@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/20 12:46:39 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/20 13:21:41 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,6 @@ BONUS_PATH	= ./bonus/
 
 LIBFT_PATH	= ./libft/
 LIBFT		= $(LIBFT_PATH)libft.a
-
-INCLUDES =	-I$(LIBFT_PATH) \
-				-I$(MANDA_PATH)\
-				-I$(BONUS_PATH)
 
 SRCS_MANDA = $(MANDA_PATH)ft_printf.c\
 		$(MANDA_PATH)add_char.c\
@@ -49,7 +45,7 @@ $(NAME): $(LIBFT) $(MANDA_OBJS)
 	ar -rcs $(NAME) $(MANDA_OBJS)
 
 $(MANDA_PATH)%.o: $(MANDA_PATH)%.c
-	$(CC) $(CFLAGS) $(INCLUDES) $(OPTION) $< -o $@
+	$(CC) $(CFLAGS) -Ilibft/ -Imanda/ $(OPTION) $< -o $@
 # END MANDA PART
 
 # BONUS PART
@@ -58,7 +54,7 @@ bonus: $(LIBFT) $(BONUS_OBJS)
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
 $(BONUS_PATH)%.o: $(BONUS_PATH)%.c
-	$(CC) $(CFLAGS) $(INCLUDES) $(OPTION) $< -o $@
+	$(CC) $(CFLAGS) -Ilibft/ -Ibonus/ $(OPTION) $< -o $@
 # END BONUS PART
 
 $(LIBFT):
