@@ -6,11 +6,11 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:54:11 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 18:21:38 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:54:20 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strbuilder.h"
+#include "libft.h"
 
 int	ft_sb_display(t_strbuilder *sb)
 {

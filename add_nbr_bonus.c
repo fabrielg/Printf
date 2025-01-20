@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_nbr.c                                       :+:      :+:    :+:   */
+/*   add_nbr_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:24:00 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/19 15:26:04 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:01:21 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	ft_nb_digits_formatted(t_conversion conv, int n)
 {

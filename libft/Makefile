@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/18 20:30:12 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/19 15:21:14 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/20 11:15:27 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS =	ft_strlen.c\
 		ft_memset.c\
 		ft_memcpy.c\
 		ft_nb_digits.c\
-		ft_itoa.c
+		ft_itoa.c\
+		ft_strbuilder.c\
+		ft_strbuilder_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

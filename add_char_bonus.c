@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_char.c                                      :+:      :+:    :+:   */
+/*   add_char_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:13:59 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/18 20:16:12 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:01:20 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 void	ft_add_char(t_strbuilder *build, t_conversion conv, int c)
 {

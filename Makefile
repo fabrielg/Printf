@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:00:37 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/01/19 15:04:20 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/01/20 11:16:40 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,32 +18,26 @@ NAME		= libftprintf.a
 LIBFT_PATH	= ./libft/
 LIBFT		= $(LIBFT_PATH)libft.a
 
-STRBUILDER_PATH	= ./strbuilder/
-
-SRCS =	ft_printf.c\
-		ft_add_char.c\
-		ft_add_str.c\
-		ft_add_nbr.c\
-		ft_add_unsigned.c\
-		parsing.c
-
-STRBUILDER_SRCS =	$(STRBUILDER_PATH)ft_strbuilder.c\
-					$(STRBUILDER_PATH)ft_strbuilder_utils.c
+SRCS =	ft_printf_bonus.c\
+		add_char_bonus.c\
+		add_str_bonus.c\
+		add_nbr_bonus.c\
+		add_unsigned_bonus.c\
+		parsing_bonus.c
 
 OBJS			= ${SRCS:.c=.o}
-STRBUILDER_OBJS	= ${STRBUILDER_SRCS:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS) $(STRBUILDER_OBJS)
+$(NAME): $(LIBFT) $(OBJS)
 	@cp $(LIBFT) $(NAME)
-	@ar -rcs $(NAME) $(OBJS) $(STRBUILDER_OBJS)
+	@ar -rcs $(NAME) $(OBJS)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
 clean:
-	@rm -f $(OBJS) $(STRBUILDER_OBJS)
+	@rm -f $(OBJS)
 	@make clean -C $(LIBFT_PATH)
 
 fclean: clean
