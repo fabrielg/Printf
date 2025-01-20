@@ -6,11 +6,12 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:39 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/20 11:12:18 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:03:14 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include <stdio.h>
+#include "./manda/ft_printf.h"
 
 void	tests_cs() {
 	int result1;
