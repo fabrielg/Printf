@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:09:32 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/20 11:41:03 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:13:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static char	*ft_get_str_null(t_conversion conv)
 void	ft_add_str(t_strbuilder *build, t_conversion conv, char *s)
 {
 	int	precision;
+	int	len;
 
 	if (!s)
 		s = ft_get_str_null(conv);
-	precision = ft_get_min(ft_strlen(s), conv.precision);
+	len = ft_strlen((const char *)s);
+	precision = ft_get_min(len, conv.precision);
 	if (precision < 0)
-		precision = ft_strlen(s);
+		precision = len;
 	if (conv.flags & LEFT_ALIGN && s)
 		ft_sb_append(build, s, precision);
 	if (conv.field_width > precision)

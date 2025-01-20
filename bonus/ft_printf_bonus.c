@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/20 11:01:31 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:14:20 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	add_formatted(t_strbuilder *b, char *s, va_list args, t_conversion *c)
 
 void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args)
 {
-	if (conv.specifier == 'c' || conv.specifier == '%')
+	if (conv.specifier == 'c')
 		ft_add_char(build, conv, va_arg(args, int));
 	else if (conv.specifier == 's')
 		ft_add_str(build, conv, va_arg(args, char *));
@@ -53,6 +53,8 @@ void	apply_specifier(t_strbuilder *build, t_conversion conv, va_list args)
 		ft_add_unsigned(build, conv, va_arg(args, unsigned int), 2);
 	else if (conv.specifier == 'p')
 		ft_add_pointer(build, conv, va_arg(args, unsigned long));
+	else if (conv.specifier == '%')
+		ft_add_char(build, conv, '%');
 }
 
 int	ft_printf(const char *s, ...)
