@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:34:36 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/01/20 16:14:20 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:15:17 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_printf(const char *s, ...)
 	va_list			args;
 	int				nb_display;
 
+	if (!s)
+		return (-1);
 	build = ft_sb_new();
 	va_start(args, s);
 	ft_sprintf(build, s, args);
